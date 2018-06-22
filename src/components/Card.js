@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image' 
  
-const Post = styled.li`
-  border: 1px solid ${props => props.theme.colors.secondary};
+const Post = styled.li` 
+  border: 1px solid ${props =>  props.theme.colors.secondary};
   border-radius: 2px;
   margin: 0 0 1em 0;
   width: 100%;
