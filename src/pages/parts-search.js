@@ -45,7 +45,7 @@ const Product = ({ hit }) => {
 
 const PartsSearch = ({ data }) => {
   const postNode = {
-    title: `Parts Search- ${config.siteTitle}`,
+    title: `Support - ${config.siteTitle}`,
   }
 
   return (

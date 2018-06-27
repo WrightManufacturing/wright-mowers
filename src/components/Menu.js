@@ -4,10 +4,8 @@ import styled from 'styled-components'
 import logo from '../images/logo.svg'
 import Headroom from 'react-headroom'
 
-
-
 const Header = styled.header`
-  /* background: ${props => props.theme.colors.base}; */
+  background: ${props => props.theme.colors.base};
   width: 100%;
   padding: .8em 0;
 `
