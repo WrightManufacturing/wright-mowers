@@ -2,9 +2,12 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import logo from '../images/logo.svg'
+import Headroom from 'react-headroom'
+
+
 
 const Header = styled.header`
-  background: ${props => props.theme.colors.base};
+  /* background: ${props => props.theme.colors.base}; */
   width: 100%;
   padding: .8em 0;
 `
@@ -47,47 +50,49 @@ const activeLinkStyle = {
 
 const Menu = () => {
   return (
+    <Headroom>
     <Header>
       <Nav>
-        <ul>
-          <li>
-            <Link to="/" exact activeStyle={activeLinkStyle}>
-              <img src={logo} alt="Wright Mowers Logo"/>
-            </Link>
-          </li>
-          <li>
-            <Link to="/stand-on/" activeStyle={activeLinkStyle}>
-              Stander
-            </Link>
-          </li>
-          <li>
-            <Link to="/walk-behind/" activeStyle={activeLinkStyle}>
-              Rider
-            </Link>
-          </li>
-          <li>
-            <Link to="/zero-turn/" activeStyle={activeLinkStyle}>
-              Walk Behind
-            </Link>
-          </li>
-          <li>
-            <Link to="/accessories/" activeStyle={activeLinkStyle}>
-              Accessories
-            </Link>
-          </li>
-          <li>
-            <Link to="/support/" activeStyle={activeLinkStyle}>
-              Support
-            </Link>
-          </li>
-          <li>
-            <Link to="/find-dealer/" activeStyle={activeLinkStyle}>
-              Find Dealer
-            </Link>
-          </li>
-        </ul>
+          <ul>
+            <li>
+              <Link to="/" exact activeStyle={activeLinkStyle}>
+                <img src={logo} alt="Wright Mowers Logo"/>
+              </Link>
+            </li>
+            <li>
+              <Link to="/stand-on/" activeStyle={activeLinkStyle}>
+                Stand
+              </Link>
+            </li>
+            <li>
+              <Link to="/walk-behind/" activeStyle={activeLinkStyle}>
+                Ride
+              </Link>
+            </li>
+            <li>
+              <Link to="/zero-turn/" activeStyle={activeLinkStyle}>
+                Walk
+              </Link>
+            </li>
+            <li>
+              <Link to="/accessories/" activeStyle={activeLinkStyle}>
+                Accessories
+              </Link>
+            </li>
+            <li>
+              <Link to="/parts-search/" activeStyle={activeLinkStyle}>
+                Support
+              </Link>
+            </li>
+            <li>
+              <Link to="/find-dealer/" activeStyle={activeLinkStyle}>
+                Retailers
+              </Link>
+            </li>
+          </ul>
       </Nav>
     </Header>
+    </Headroom>
   )
 }
 
