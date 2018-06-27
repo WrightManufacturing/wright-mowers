@@ -4,11 +4,11 @@ module.exports = {
   publisher: 'Wright Mowers', // Organization name used for SEO schema
   siteDescription:
     'Commercial Grade Lawn Mowers Made With Industrial Grade Components. Creators of the first stand on mower, the Stander.',
-  siteUrl: 'https://netlify.wrightmowers.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
+  siteUrl: 'https://netlify.wrightmfg.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
   author: 'Wright Mowers Admin', // Author for RSS author segment and SEO schema
-  authorUrl: 'https://netlify.wrightmowers.com', // URL used for author and publisher schema, can be a social profile or other personal site
+  authorUrl: 'https://netlify.wrightmfg.com', // URL used for author and publisher schema, can be a social profile or other personal site
   userTwitter: '@wrightmowers', // Change for Twitter Cards
-  shortTitle: 'Wright Mowers', // Used for App manifest e.g. Mobile Home Screen
+  shortTitle: 'Wright', // Used for App manifest e.g. Mobile Home Screen
   shareImage: '/logos/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
   shareImageWidth: 900, // Change to the width of your default share image
   shareImageHeight: 600, // Change to the height of your default share image
