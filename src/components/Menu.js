@@ -14,11 +14,12 @@ const Nav = styled.nav`
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
   padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    
   }
 
   li {
@@ -38,24 +39,27 @@ const Nav = styled.nav`
   img {
     height: 2em;
     width: auto;
-    margin-left: -.5em;
   }
   @media (max-width: ${props => props.theme.responsive.small}) {
     ul {
-      mask-image: -webkit-linear-gradient(to right, transparent, black 5px, black 90%, transparent);
-      mask-image: -moz-linear-gradient(to right, transparent, black 5px, black 90%, transparent);
-      mask-image: linear-gradient(to right, transparent, black 5px, black 90%, transparent);
-      -webkit-mask-image: -webkit-linear-gradient(to right, transparent, black 5px, black 90%, transparent);
-      -webkit-mask-image: -moz-linear-gradient(to right, transparent, black 5px, black 90%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 5px, black 90%, transparent);
+      mask-image: -webkit-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
+      mask-image: -moz-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 15px, black 90%, transparent);
+      -webkit-mask-image: -webkit-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
+      -webkit-mask-image: -moz-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 15px, black 90%, transparent);
       overflow: auto;
       white-space: nowrap;
-      margin-top: .5em;
+      width: 100%;
+      padding: 0em .6em;
     }
 
     img {
-      margin: auto;
+      margin-left: -.75em;
+      margin-right: .5em;
     }
+    
+
   }
 `
 
@@ -74,9 +78,6 @@ const Menu = () => {
           </Link>
 
           <ul>
-            <li>
-              
-            </li>
             <li>
               <Link to="/stand-on/" activeStyle={activeLinkStyle}>
                 Stand
