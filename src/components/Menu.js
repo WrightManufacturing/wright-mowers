@@ -29,7 +29,6 @@ const Nav = styled.nav`
       flex-basis: 100%;
     }
   }
-
   a {
     text-decoration: none;
     color: white;
@@ -39,6 +38,24 @@ const Nav = styled.nav`
   img {
     height: 2em;
     width: auto;
+    margin-left: -.5em;
+  }
+  @media (max-width: ${props => props.theme.responsive.small}) {
+    ul {
+      mask-image: -webkit-linear-gradient(to right, transparent, black 5px, black 90%, transparent);
+      mask-image: -moz-linear-gradient(to right, transparent, black 5px, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 5px, black 90%, transparent);
+      -webkit-mask-image: -webkit-linear-gradient(to right, transparent, black 5px, black 90%, transparent);
+      -webkit-mask-image: -moz-linear-gradient(to right, transparent, black 5px, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 5px, black 90%, transparent);
+      overflow: auto;
+      white-space: nowrap;
+      margin-top: .5em;
+    }
+
+    img {
+      margin: auto;
+    }
   }
 `
 
@@ -51,11 +68,14 @@ const Menu = () => {
     <Headroom>
     <Header>
       <Nav>
+
+          <Link to="/" exact activeStyle={activeLinkStyle}>
+            <img src={logo} alt="Wright Mowers Logo"/>
+          </Link>
+
           <ul>
             <li>
-              <Link to="/" exact activeStyle={activeLinkStyle}>
-                <img src={logo} alt="Wright Mowers Logo"/>
-              </Link>
+              
             </li>
             <li>
               <Link to="/stand-on/" activeStyle={activeLinkStyle}>
@@ -88,7 +108,7 @@ const Menu = () => {
               </Link>
             </li>
           </ul>
-      </Nav>
+        </Nav>
     </Header>
     </Headroom>
   )
