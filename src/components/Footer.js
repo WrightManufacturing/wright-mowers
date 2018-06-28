@@ -5,54 +5,60 @@ import Link from 'gatsby-link'
 const Wrapper = styled.footer`
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   margin: 0 auto;
+  margin-bottom: 1em;
   max-width: ${props => props.theme.sizes.maxWidth};
+  border-top: 2px solid ${props => props.theme.colors.base};
 `
 
 const List = styled.ul`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  border-top: 1px solid ${props => props.theme.colors.secondary};
-  padding: 1em 0 2em;
-  margin: 0 1.5em;
+  margin: 1em;
+  padding-top: .5em;
+  padding-left: .5em;
+  padding-bottom: 0em;
+  border-left: 2px solid ${props => props.theme.colors.secondary};
+
 `
 
 const Item = styled.li`
-  display: inline-block;
-  padding: 0.25em 0;
+  display: block;
   width: 100%;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    width: auto;
-  }
-  a {
+  margin-bottom: 1.2em;
+  width: auto;
+
+  div {
+    font-size: 1.5em;
     font-weight: 600;
+
+  }
+
+  a {
+    font-weight: 500;
     transition: all 0.2s;
     color: ${props => props.theme.colors.base};
+    text-decoration: none;
+    background-color: ${props => props.theme.colors.secondary};
+    border-radius: 5px;
+    padding: .25em .75em;
     &:hover {
-      color: ${props => props.theme.colors.highlight};
-    }
-    &:visited {
-      color: ${props => props.theme.colors.base};
+      color: black;
+      background-color: #d1d1d1;
     }
   }
 `
 
 const Footer = () => (
   <Wrapper>
+
     <List>
       <Item>
-        <Link to="/" exact >
-          Home
-        </Link>
+        <div>Company</div>
       </Item>
       <Item>
-        <Link to="/about/" >
-          About
+        <Link to="/support/" >
+          Support
         </Link>
       </Item>
       <Item>
@@ -66,17 +72,113 @@ const Footer = () => (
         </Link>
       </Item>
       <Item>
-        <Link to="/parts/" >
-          Parts
+        <Link to="/about/" >
+          About
         </Link>
       </Item>
       <Item>
-        <Link to="/support/" >
-          Support
+        <Link to="/about/" >
+          Careers
+        </Link>
+      </Item>
+      <Item>
+        <a href="https://purchase.wrightmfg.com/">Dealer & Distributor</a>
+      </Item>
+    </List>
+    
+    <List>
+      <Item>
+        <div>Products</div>
+      </Item>
+      <Item>
+        <Link to="/stand-on/" >
+          Stand
+        </Link>
+      </Item>
+      <Item>
+        <Link to="/walk-behind/" >
+          Walk
+        </Link>
+      </Item>
+      <Item>
+        <Link to="/zero-turn/" >
+          Ride
+        </Link>
+      </Item>
+      <Item>
+        <Link to="/accessories/" >
+          Accessories
+        </Link>
+      </Item>
+      <Item>
+        <a href="http://apparel.wrightmfg.com/">Apparel</a>
+      </Item>
+    </List>
+
+
+    <List>
+      <Item>
+        <div>Buy</div>
+      </Item>
+      <Item>
+        <Link to="https://store.wrightmfg.com/" >
+          Online Store
+        </Link>
+      </Item>
+      <Item>
+        <Link to="/pricing/" >
+          Pricing
+        </Link>
+      </Item>
+      <Item>
+        <Link to="/demo/" >
+          Demo A Wright
+        </Link>
+      </Item>
+      <Item>
+        <Link to="/find-dealer/" >
+          Find Dealer
         </Link>
       </Item>
     </List>
+
+    <List>
+      <Item>
+        <div>Social</div>
+      </Item>
+      <Item>
+        <a href="https://www.instagram.com/wright_mowers/">Instagram</a>
+      </Item>
+      <Item>
+        <a href="https://www.youtube.com/user/WrightMowers">YouTube</a>
+      </Item>
+      <Item>
+        <a href="https://www.facebook.com/wrightcommercialproducts">Facebook</a>
+      </Item>
+      <Item>
+        <a href="https://twitter.com/wrightmowers">Twitter</a>
+      </Item>
+      <Item>
+        <a href="https://wolf.wrightmfg.com/">Wright Owners Forum</a>
+      </Item>
+    </List>
+
+
+    {/* <div>
+      <div>
+        Wright Manufacturing, Inc. © 2018
+      </div>
+      <Link to="/" >
+        Privacy Policy
+      </Link>
+      <Link to="/" >
+        Trademarks
+      </Link>
+    </div> */}
+
   </Wrapper>
 )
 
 export default Footer
+
+

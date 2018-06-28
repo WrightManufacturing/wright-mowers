@@ -78,16 +78,16 @@ injectGlobal`
   * {
     box-sizing: border-box;
   }
-
+ 
   body {
-    background: "white";
+    background: white;
     line-height: 1;
     font-size: 100%;
     font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
     text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
     font-weight: 400;
-    font-family: Roboto;
+    font-family: Roboto, Segoe UI,-apple-system,BlinkMacSystemFont,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   }
 
   img {

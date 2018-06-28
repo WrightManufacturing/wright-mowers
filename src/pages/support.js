@@ -43,7 +43,7 @@ const Product = ({ hit }) => {
 
 
 
-const PartsSearch = ({ data }) => {
+const Support = ({ data }) => {
   const postNode = {
     title: `Support - ${config.siteTitle}`,
   }
@@ -57,7 +57,7 @@ const PartsSearch = ({ data }) => {
 
       <Container>
 
-        <PageTitle>Parts Search</PageTitle>
+        <PageTitle>Support</PageTitle>
 
         <InstantSearch
           appId="5XBD1PVTNK"
@@ -84,4 +84,4 @@ const PartsSearch = ({ data }) => {
   )
 }
 
-export default PartsSearch
+export default Support

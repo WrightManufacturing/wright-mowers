@@ -2,14 +2,16 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import logo from '../images/logo.svg'
-import Headroom from 'react-headroom'
 
-const HeaderFullWidth = styled.header`
+const HeaderFullWidth = styled.div`
   background: ${props => props.theme.colors.base};
   width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
 `
 
-const Header = styled.div`
+const Header = styled.header`
   max-width: ${props => props.theme.sizes.maxWidth};
   display: flex;
   align-items: center;
@@ -22,7 +24,6 @@ const Header = styled.div`
   }
 `
 
-
 const Nav = styled.nav`
   display: flex;
   align-items: center;
@@ -34,6 +35,7 @@ const Nav = styled.nav`
     font-weight: 400;
     transition: all 0.2s;
     padding: 1em .5em;
+    display: block;
   }
 
   @media (max-width: ${props => props.theme.responsive.small}) {
@@ -49,32 +51,30 @@ const Nav = styled.nav`
 `
 
 const activeLinkStyle = {
-  color: 'LightGrey',
+  color: 'LightGrey'
 }
 
 const Menu = () => {
   return (
-    <Headroom>
       <HeaderFullWidth>
         <Header>
           <Link to="/" exact activeStyle={activeLinkStyle}>
             <img src={logo} alt="Wright Mowers Logo"/>
           </Link>
-
           <Nav>
             <Link to="/stand-on/" activeStyle={activeLinkStyle}>
               Stand
             </Link>
             <Link to="/walk-behind/" activeStyle={activeLinkStyle}>
-              Ride
+              Walk
             </Link>
             <Link to="/zero-turn/" activeStyle={activeLinkStyle}>
-              Walk
+              Ride
             </Link>
             <Link to="/accessories/" activeStyle={activeLinkStyle}>
               Accessories
             </Link>
-            <Link to="/parts-search/" activeStyle={activeLinkStyle}>
+            <Link to="/support/" activeStyle={activeLinkStyle}>
               Support
             </Link>
             <Link to="/find-dealer/" activeStyle={activeLinkStyle}>
@@ -83,7 +83,6 @@ const Menu = () => {
           </Nav>
         </Header>
       </HeaderFullWidth>
-    </Headroom>
   )
 }
 
