@@ -14,6 +14,7 @@ import {
   Highlight,
   RefinementList,
   Stats,
+  ClearRefinements ,
 } from 'react-instantsearch/dom';
 
 const Title = styled.h3`
@@ -21,27 +22,33 @@ const Title = styled.h3`
   padding: .2em;
 `
 
+const ResultsArea = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+`
+
 const FacetArea = styled.div`
   border: solid #f2f2f2 3px;
   display: inline-block;
+  hr {
+    border-top: solid #f2f2f2 3px;
+  }
 `
-
 
 const Product = ({ hit }) => {
   return (
     <div style={{ marginTop: '10px' }}>
       <span>
-        <Highlight attribute="parent_part_desc" hit={hit} />
+        <Highlight attribute="mow_sku" hit={hit} />
         <br/>
-        <Highlight attribute="ps_parent_part" hit={hit} />
+        <Highlight attribute="mow_category" hit={hit} />
         <br/>
-        <Highlight attribute="ps_child_part" hit={hit} />
+        <Highlight attribute="mow_family" hit={hit} />
       </span>
     </div>
   );
 }
-
-
 
 const Support = ({ data }) => {
   const postNode = {
@@ -60,22 +67,47 @@ const Support = ({ data }) => {
         <PageTitle>Support</PageTitle>
 
         <InstantSearch
-          appId="5XBD1PVTNK"
-          apiKey="09d24d6c67ba3e812fefbcb75904edb2"
-          indexName="dev_FINGOODS"
+          appId="X5LECM4LTF"
+          apiKey="a09c58abd526e52c52edcf13b52344db"
+          indexName="dev_SPECS"
         > 
+
+        <ClearRefinements  />
+        
         <Stats />
         <SearchBox />
 
-          <FacetArea>
-            <Title>Parent</Title>
-            <RefinementList attribute="ps_parent_part"/>
+        <ResultsArea>
+      
+        <FacetArea>
+            <Title>Category</Title>
+            <RefinementList attribute="mow_category"/>
+            <hr/>
+            <Title>Family</Title>
+            <RefinementList attribute="mow_family"/>
+            <hr/>
+            <Title>Deck</Title>
+            <RefinementList attribute="deck_size"/>
+            <hr/>
+            <Title>Generation</Title>
+            <RefinementList attribute="generation"/>
+            <hr/>     
+            <Title>Engine Brand</Title>
+            <RefinementList attribute="vendor"/>
+            <hr/> 
+            <Title>Engine Model</Title>
+            <RefinementList attribute="model"/>
+            <hr/>
+            <Title>Start Type</Title>
+            <RefinementList attribute="start_type"/>
 
-            <Title>Parent Description</Title>
-            <RefinementList attribute="parent_part_desc"/>
           </FacetArea>
 
           <Hits hitComponent={Product} />
+
+        </ResultsArea>
+
+          
 
         </InstantSearch>
         
