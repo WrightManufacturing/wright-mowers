@@ -107,7 +107,7 @@ const Body = styled.div`
   }
 
   img {
-    border-radius: .3em;
+    /* border-radius: .3em; */
   }
 
 `

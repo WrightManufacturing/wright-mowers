@@ -9,6 +9,7 @@ const Post = styled.li`
   margin: 0 0 1em 0;
   width: 100%;
   transition: background 0.2s;
+  background-color: ${props =>  props.theme.colors.tertiary};
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 49%;
     margin: 0 0 2vw 0;

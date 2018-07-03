@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
+import instagram from '../images/instagram.svg'
+import facebook from '../images/facebook.svg'
+import twitter from '../images/twitter.svg'
+import wolf from '../images/wolf.svg'
+import youtube from '../images/youtube.svg'
+
 
 const Wrapper = styled.footer`
   display: flex;
@@ -19,12 +25,26 @@ const List = styled.ul`
   padding-left: .5em;
   padding-bottom: 0em;
   border-left: 2px solid ${props => props.theme.colors.secondary};
-
+  img {
+    display: inline;
+    margin: .8em;
+    width: auto;
+    height: 1.5em;
+    &:hover {
+      opacity: .8;
+    }
+  }
+  hr {
+    margin-bottom: 1.2em;
+    width: auto;
+    height: 0px;
+    border: none;
+    border-top: 1px solid ${props => props.theme.colors.secondary};
+  }
 `
 
 const Item = styled.li`
   display: block;
-  width: 100%;
   margin-bottom: 1.2em;
   width: auto;
 
@@ -58,31 +78,31 @@ const Footer = () => (
       </Item>
       <Item>
         <Link to="/support/" >
-          Support
-        </Link>
-      </Item>
-      <Item>
-        <Link to="/contact/" >
-          Contact
+          Support ⚙️
         </Link>
       </Item>
       <Item>
         <Link to="/articles/" >
-          Articles
+          Articles 📃
+        </Link>
+      </Item>
+      <Item>
+        <Link to="/contact/" >
+          Contact ✉️
         </Link>
       </Item>
       <Item>
         <Link to="/about/" >
-          About
+          About ℹ
         </Link>
       </Item>
       <Item>
-        <Link to="/about/" >
-          Careers
+        <Link to="/careers/" >
+          Careers 👨‍💼
         </Link>
       </Item>
       <Item>
-        <a href="https://purchase.wrightmfg.com/">Dealer & Distributor</a>
+        <a href="https://purchase.wrightmfg.com/" target="_blank" >Dealer & Distributor 🔗</a>
       </Item>
     </List>
     
@@ -90,6 +110,12 @@ const Footer = () => (
       <Item>
         <div>Products</div>
       </Item>
+      <Item>
+        <Link to="/compare/" >
+          Compare
+        </Link>
+      </Item>
+      <hr/>
       <Item>
         <Link to="/stand-on/" >
           Stand
@@ -111,7 +137,7 @@ const Footer = () => (
         </Link>
       </Item>
       <Item>
-        <a href="http://apparel.wrightmfg.com/">Apparel</a>
+        <a href="http://apparel.wrightmfg.com/" target="_blank" >Apparel</a>
       </Item>
     </List>
 
@@ -121,29 +147,19 @@ const Footer = () => (
         <div>Buy</div>
       </Item>
       <Item>
-        <Link to="https://store.wrightmfg.com/" >
-          Online Store
+        <Link to="/find-dealer/" >
+          Find Dealer
         </Link>
       </Item>
       <Item>
-        <Link to="/pricing/" >
-          Pricing
-        </Link>
-      </Item>
-      <Item>
-        <Link to="/specs/" >
-          Specs
-        </Link>
-      </Item>
-      <Item>
-        <Link to="/demo/" >
+        <Link to="/contact/" >
           Demo A Wright
         </Link>
       </Item>
       <Item>
-        <Link to="/find-dealer/" >
-          Find Dealer
-        </Link>
+        <a href="https://store.wrightmfg.com/" target="_blank" >
+          Online Store
+        </a>
       </Item>
     </List>
 
@@ -151,22 +167,28 @@ const Footer = () => (
       <Item>
         <div>Social</div>
       </Item>
-      <Item>
-        <a href="https://www.instagram.com/wright_mowers/">Instagram</a>
-      </Item>
-      <Item>
-        <a href="https://www.youtube.com/user/WrightMowers">YouTube</a>
-      </Item>
-      <Item>
-        <a href="https://www.facebook.com/wrightcommercialproducts">Facebook</a>
-      </Item>
-      <Item>
-        <a href="https://twitter.com/wrightmowers">Twitter</a>
-      </Item>
-      <Item>
-        <a href="https://wolf.wrightmfg.com/">Wright Owners Forum</a>
-      </Item>
+
+      <a href="https://www.instagram.com/wright_mowers/" target="_blank" >
+        <img src={instagram} alt=""/>
+      </a>
+
+      <a href="https://www.youtube.com/user/WrightMowers" target="_blank" >
+        <img src={youtube} alt=""/>
+      </a>
+
+      <a href="https://www.facebook.com/wrightcommercialproducts" target="_blank" >
+        <img src={facebook} alt=""/>
+      </a>
+
+      <a href="https://twitter.com/wrightmowers" target="_blank" >
+        <img src={twitter} alt=""/>
+      </a>
+
+      <a href="https://wolf.wrightmfg.com/" target="_blank" >
+        <img src={wolf} alt=""/>
+      </a>
     </List>
+        
 
 
     {/* <div>

@@ -58,7 +58,7 @@ const activeLinkStyle = {
 const Menu = () => {
   return (
     <div>
-            <HeaderFullWidth>
+      <HeaderFullWidth>
         <Header>
           <Link to="/" exact activeStyle={activeLinkStyle}>
             <img src={logo} alt="Wright Mowers Logo"/>
