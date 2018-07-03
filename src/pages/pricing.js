@@ -4,27 +4,24 @@ import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
-import fingoods from '../data/fingoods.js'
 
-console.log(fingoods)
-
-const Specs = ({ data }) => {
+const Pricing = ({ data }) => {
   const postNode = {
-    title: `Specs - ${config.siteTitle}`,
+    title: `Pricing - ${config.siteTitle}`,
   }
 
   return (
     <div>
       <Helmet>
-        <title>{`Specs - ${config.siteTitle}`}</title>
+        <title>{`Pricing - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO postNode={postNode} pagePath="specs" customTitle />
+      <SEO postNode={postNode} pagePath="pricing" customTitle />
 
       <Container>
-        <PageTitle>Specs</PageTitle>
+        <PageTitle>Pricing</PageTitle>
       </Container>
     </div>
   )
 }
 
-export default Specs
+export default Pricing

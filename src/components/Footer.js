@@ -131,6 +131,11 @@ const Footer = () => (
         </Link>
       </Item>
       <Item>
+        <Link to="/specs/" >
+          Specs
+        </Link>
+      </Item>
+      <Item>
         <Link to="/demo/" >
           Demo A Wright
         </Link>
