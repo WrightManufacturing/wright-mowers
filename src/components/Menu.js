@@ -15,8 +15,9 @@ const Header = styled.header`
   max-width: ${props => props.theme.sizes.maxWidth};
   display: flex;
   align-items: center;
+  justify-content: space-between;
   flex-direction: row;
-
+  margin: auto;
   img {
     height: 2em;
     width: auto;

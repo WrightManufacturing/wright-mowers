@@ -77,9 +77,10 @@ const Support = ({ data }) => {
         <Stats />
         <SearchBox />
 
-        <ResultsArea>
+      <ResultsArea>
       
         <FacetArea>
+          
             <Title>Category</Title>
             <RefinementList attribute="mow_category"/>
             <hr/>
@@ -104,6 +105,11 @@ const Support = ({ data }) => {
           </FacetArea>
 
           <Hits hitComponent={Product} />
+
+          {/* <Index indexName="dev_SERIAL">
+            <p>Serial</p>
+            <Hits />
+          </Index> */}
 
         </ResultsArea>
 
