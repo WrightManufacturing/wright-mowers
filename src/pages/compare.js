@@ -22,10 +22,9 @@ const Compare = ({ data }) => {
 
       <Container>
         <PageTitle>Compare</PageTitle>
-
         <div>Product</div>
         <div>Product</div>
-        <div>Product</div>  
+        <div>Product</div>
       </Container>
     </div>
   )

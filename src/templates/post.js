@@ -37,9 +37,9 @@ const PostTemplate = ({ data }) => {
       <Hero title={title} image={heroImage} height={'50vh'} />
 
       <Container>
-        {tags && <TagList tags={tags} />}
         <PostDate date={publishDate} />
         <PageBody body={body} />
+        {tags && <TagList tags={tags} />}
         <PostLinks previous={postIndex.previous} next={postIndex.next} />
       </Container>
     </div>

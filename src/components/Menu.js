@@ -32,11 +32,13 @@ const Nav = styled.nav`
 
   a {
     text-decoration: none;
-    color: white;
-    font-weight: 400;
+    color: ${props => props.theme.colors.highlight};
     transition: all 0.2s;
     padding: 1em .5em;
     display: block;
+    &:hover {
+      box-shadow: 0 0px,0 -2px ${props => props.theme.colors.highlight} inset, 0px 0, 0px 0;
+    }
   }
 
   @media (max-width: ${props => props.theme.responsive.small}) {
@@ -52,7 +54,7 @@ const Nav = styled.nav`
 `
 
 const activeLinkStyle = {
-  color: 'LightGrey'
+  boxShadow: '0 0px,0 -2px #fdbb2d inset, 0px 0, 0px 0'
 }
 
 const Menu = () => {
@@ -60,7 +62,7 @@ const Menu = () => {
     <div>
       <HeaderFullWidth>
         <Header>
-          <Link to="/" exact activeStyle={activeLinkStyle}>
+          <Link to="/" exact>
             <img src={logo} alt="Wright Mowers Logo"/>
           </Link>
           <Nav>

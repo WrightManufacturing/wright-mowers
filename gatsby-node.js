@@ -78,7 +78,57 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadPages, loadTags])
+  const loadProducts = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulProduct {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      result.data.allContentfulProduct.edges.map(({ node }) => {
+        createPage({
+          path: `${node.slug}/`,
+          component: path.resolve(`./src/templates/product.js`),
+          context: {
+            slug: node.slug,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
+  const loadCategory = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulCategory {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      result.data.allContentfulCategory.edges.map(({ node }) => {
+        createPage({
+          path: `${node.slug}/`,
+          component: path.resolve(`./src/templates/category.js`),
+          context: {
+            slug: node.slug,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
+  return Promise.all([loadPosts, loadPages, loadTags, loadProducts, loadCategory])
 }
 
 exports.modifyWebpackConfig = ({ config, stage }) => {

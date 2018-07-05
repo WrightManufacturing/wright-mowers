@@ -3,12 +3,11 @@ import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
-import PageBody from '../components/PageBody'
 import SEO from '../components/SEO'
 
-const PageTemplate = ({ data }) => {
-  const { title, slug, body, feature } = data.contentfulPage
-  const postNode = data.contentfulPage
+const ProductTemplate = ({ data }) => {
+  const { title, slug, slogan, shortDescription, mainImage, startingPrice } = data.contentfulProduct
+  const postNode = data.contentfulProduct
 
   return (
     <div>
@@ -19,31 +18,37 @@ const PageTemplate = ({ data }) => {
 
       <Container>
         <PageTitle>{title}</PageTitle>
-        <PageBody body={body} />
-
+        <div>
+          {slogan}
+          {shortDescription}
+          <img src={mainImage.file.url} alt=""/>
+          {startingPrice}
+        </div>
       </Container>
     </div>
   )
 }
 
 export const query = graphql`
-  query pageQuery($slug: String!) {
-    contentfulPage(slug: { eq: $slug }) {
+  query productQuery($slug: String!) {
+    contentfulProduct(slug: { eq: $slug }) {
       title
       slug
+      slogan
+      shortDescription
+      mainImage {
+        file {
+          url
+        }
+      }
+      startingPrice
       metaDescription {
         internal {
           content
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-          excerpt(pruneLength: 320)
         }
       }
     }
   }
 `
 
-export default PageTemplate
+export default ProductTemplate
