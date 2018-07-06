@@ -114,12 +114,12 @@ const Footer = () => (
   </Item>
   <Item>
     <Link to="/about/" >
-      About ℹ
+      About
     </Link>
   </Item>
   <Item>
     <Link to="/careers/" >
-      Careers 💼
+      Careers
     </Link>
   </Item>
   <Item>
