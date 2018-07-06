@@ -25,7 +25,7 @@ const CategoryTemplate = ({ data }) => {
           {products && products.map((val,idx) => 
             <div key={idx}>
               {val.title}
-              <img src={val.icon.file.url} alt=""/>
+              {val.icon.file.url && <img src={val.icon.file.url} alt=""/>}
             </div>
            )}
           </div>

@@ -67,13 +67,13 @@ const Menu = () => {
           </Link>
           <Nav>
             <Link to="/stand-on/" activeStyle={activeLinkStyle}>
-              Stand
+              Stand On
             </Link>
             <Link to="/walk-behind/" activeStyle={activeLinkStyle}>
-              Walk
+              Walk Behind
             </Link>
             <Link to="/zero-turn/" activeStyle={activeLinkStyle}>
-              Ride
+              Zero Turn
             </Link>
             <Link to="/accessories/" activeStyle={activeLinkStyle}>
               Accessories
