@@ -4,10 +4,13 @@ import Card from '../components/Card'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
+import Link from 'gatsby-link'
+
 
 const Index = ({ data }) => {
   const posts = data.allContentfulPost.edges
-
+  const tags = data.allContentfulTag.edges
+  console.log(tags)
   return (
     <div>
       <SEO />
@@ -15,6 +18,11 @@ const Index = ({ data }) => {
         <PageTitle small>
           Articles
         </PageTitle>
+        {tags.map(({node: tag}, idx) => (
+          <div key={idx} >
+            <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
+          </div>
+        ))}
         <CardList>
           {posts.map(({ node: post }) => (
             <Card
@@ -43,6 +51,11 @@ export const query = graphql`
           title
           id
           slug
+          tags {
+            title
+            slug
+            id
+          }
           publishDate(formatString: "MMMM DD, YYYY")
           heroImage {
             title
@@ -56,6 +69,14 @@ export const query = graphql`
               excerpt(pruneLength: 80)
             }
           }
+        }
+      }
+    }
+    allContentfulTag {
+      edges {
+        node {
+          title
+          slug
         }
       }
     }

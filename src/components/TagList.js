@@ -26,6 +26,7 @@ const Tag = styled.li`
 `
 
 const TagList = props => {
+  console.log(props)
   return (
     <List>
       {props.tags.map(tag => (

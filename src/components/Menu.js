@@ -36,6 +36,7 @@ const Nav = styled.nav`
     transition: all 0.2s;
     padding: 1em .5em;
     display: block;
+    white-space:nowrap;
     &:hover {
       box-shadow: 0 0px,0 -2px ${props => props.theme.colors.highlight} inset, 0px 0, 0px 0;
     }
