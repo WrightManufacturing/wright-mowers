@@ -17,6 +17,9 @@ const Wrapper = styled.footer`
   margin: auto;
   margin-bottom: 2rem;
   max-width: ${props => props.theme.sizes.maxWidth};
+  /* @media (max-width: ${props => props.theme.responsive.small}) {
+    justify-content: flex-start;
+  } */
 `
 
 const List = styled.ul`

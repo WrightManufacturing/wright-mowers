@@ -50,7 +50,6 @@ const Nav = styled.nav`
     -webkit-mask-image: -moz-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15px, black 90%, transparent);
     overflow: auto;
-    white-space: nowrap;
   }
 `
 
