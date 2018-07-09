@@ -35,7 +35,7 @@ const CategoryTemplate = ({ data }) => {
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO pagePath={slug} postNode={postNode} pageSEO />
-      <ProductIconHeader products={products} />
+      { products && <ProductIconHeader products={products} />}
       <Container>
         <PageTitle small >{title}</PageTitle>
         <Slogan>{slogan}</Slogan>

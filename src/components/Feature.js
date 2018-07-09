@@ -45,7 +45,7 @@ const Feature = props => {
       {props.features.map(feature => (
         <Item key={feature.id}>
           <h4>{feature.title}</h4>
-          <img src={feature.featureAsset.file.url} alt=""/>
+          <img src={feature.featureAsset.file.url} alt={feature.title}/>
           <p>{feature.description.internal.content}</p>
         </Item>
       ))}

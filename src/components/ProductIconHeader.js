@@ -35,7 +35,7 @@ const ProductIconHeader = props => {
         <Product key={product.id}>
           <Link to={`/${product.slug}/`} exact>
           
-          <img src={product.icon.file.url} alt=""/>
+          { product.icon && <img src={product.icon.file.url} alt={product.title}/>}
           {product.title}
           </Link>
         </Product>
