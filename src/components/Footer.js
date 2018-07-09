@@ -164,7 +164,7 @@ const Footer = () => (
     </Link>
   </Item>
   <Item>
-    <Link to="/contact/" >
+    <Link to="/demo-a-wright/" >
       Demo A Wright
     </Link>
   </Item>

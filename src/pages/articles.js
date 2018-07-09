@@ -5,7 +5,25 @@ import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
 import Link from 'gatsby-link'
+import styled from 'styled-components'
 
+const TagList = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  a {
+    background-color: ${props => props.theme.colors.tertiary};
+    color: ${props => props.theme.colors.base};
+    text-decoration: none;
+    padding: .4rem .8rem;
+    margin: 0rem 1rem .8rem 0rem;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    white-space:nowrap;
+    &:hover {
+      background-color: ${props => props.theme.colors.secondary};
+    }
+  }
+`
 
 const Index = ({ data }) => {
   const posts = data.allContentfulPost.edges
@@ -17,11 +35,13 @@ const Index = ({ data }) => {
         <PageTitle small>
           Articles
         </PageTitle>
-        {tags.map(({node: tag}, idx) => (
-          <div key={idx} >
-            <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
-          </div>
-        ))}
+
+        <TagList >
+          {tags.map(({node: tag}, idx) => (
+              <Link key={idx} to={`/tag/${tag.slug}/`}>{tag.title} ➡️</Link>
+          ))}
+        </TagList>
+        
         <CardList>
           {posts.map(({ node: post }) => (
             <Card

@@ -42,7 +42,7 @@ const CategoryTemplate = ({ data }) => {
         <Img
           height={mainImage.height}
           sizes={mainImage.sizes}
-          backgroundColor={'#eeeeee'}
+          backgroundColor={'white'}
         />
         <Description>{longDescription.internal.content}</Description>
         {features && <Feature features={features} />}
@@ -66,9 +66,9 @@ export const query = graphql`
         slug
         id
         title
-        icon {
-          file {
-            url
+        thumbnail {
+          sizes(maxWidth: 100) {
+          ...GatsbyContentfulSizes_withWebp_noBase64
           }
         }
       }
@@ -86,8 +86,8 @@ export const query = graphql`
           }
         }
         featureAsset {
-          file {
-            url
+          sizes(maxWidth: 400) {
+          ...GatsbyContentfulSizes_withWebp_noBase64
           }
         }
       }

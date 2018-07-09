@@ -1,25 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
 const List = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: #f2f2f2;
-  padding: 1rem;
+  align-content: center;
+  background-color: ${props => props.theme.colors.tertiary};
   overflow-x: auto;
+  padding-top: .5rem;
 `
 
 const Product = styled.li`
-
-  margin: 0rem 1.2rem 1.2rem 1.2rem;
-  height: 5em;
-
+  margin: auto 1.2rem 1rem 1rem;
+  transition: all 0.2s;
+  &:hover {
+    opacity: .8;
+  }
+  div {
+    font-weight: 500;
+  }
   img {
-    width: 4em;
-    margin: 1rem auto;
+    padding: .4rem;
   }
   a {
     text-decoration: none;
@@ -34,9 +39,13 @@ const ProductIconHeader = props => {
       {props.products.map(product => (
         <Product key={product.id}>
           <Link to={`/${product.slug}/`} exact>
+          <Img
+            height={product.thumbnail.height}
+            sizes={product.thumbnail.sizes}
+            backgroundColor={props => props.theme.colors.tertiary}
+            />
+          <div>{product.title}</div>
           
-          {/* { product.icon && <img src={product.icon.file.url} alt={product.title}/>} */}
-          {product.title}
           </Link>
         </Product>
       ))}
