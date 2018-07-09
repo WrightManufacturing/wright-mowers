@@ -1,47 +1,51 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
+import styled from 'styled-components'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
+import ProductIconHeader from '../components/ProductIconHeader.js'
+import Feature from '../components/Feature.js'
+import Img from 'gatsby-image'
+
+const Slogan = styled.h2`
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+`
+
+const Description = styled.p`
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 2rem 1rem;
+  line-height: 1.7rem;
+  @media (max-width: ${props => props.theme.responsive.small}) {
+    text-align: left;
+  }
+`
+
 
 const CategoryTemplate = ({ data }) => {
-  const { title, slug, slogan, mainImage, features, products} = data.contentfulCategory
+  const { title, slug, slogan, mainImage, features, products, longDescription} = data.contentfulCategory
   const postNode = data.contentfulCategory
-  console.log(features)
   return (
     <div>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO pagePath={slug} postNode={postNode} pageSEO />
-
+      <ProductIconHeader products={products} />
       <Container>
-        <PageTitle>{title}</PageTitle>
-        <div>
-          {slogan}
-          {mainImage && <img src={mainImage.file.url} alt=""/>}
-          <div>
-          {products && products.map((val,idx) => 
-            <div key={idx}>
-              {val.title}
-              {/* {val.icon.file.url && <img src={val.icon.file.url} alt=""/>} */}
-            </div>
-           )}
-          </div>
-
-          <div>
-          {features && features.map((val,idx) => 
-            <div key={idx}>
-
-              <p style={{fontSize: '30px'}}>{val.featureTitle}</p>
-              <img src={val.featureAsset.file.url} alt=""/>
-                {val.featureDescription.internal.content}
-            </div>
-           )}
-        </div>
-        </div>
-
+        <PageTitle small >{title}</PageTitle>
+        <Slogan>{slogan}</Slogan>
+        <Img
+          height={mainImage.height}
+          sizes={mainImage.sizes}
+          backgroundColor={'#eeeeee'}
+        />
+        <Description>{longDescription.internal.content}</Description>
+        {features && <Feature features={features} />}
       </Container>
     </div>
   )
@@ -54,11 +58,13 @@ export const query = graphql`
       slug
       slogan
       mainImage {
-        file {
-          url
+        sizes(maxWidth: 1800) {
+          ...GatsbyContentfulSizes_withWebp_noBase64
         }
       }
       products {
+        slug
+        id
         title
         icon {
           file {
@@ -66,9 +72,15 @@ export const query = graphql`
           }
         }
       }
+      longDescription {
+        internal {
+          content
+        }
+      }
       features {
-        featureTitle
-        featureDescription {
+        id
+        title
+        description {
           internal {
             content
           }

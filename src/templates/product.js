@@ -4,11 +4,11 @@ import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
+import Img from 'gatsby-image'
 
 const ProductTemplate = ({ data }) => {
   const { title, slug, slogan, shortDescription, mainImage, startingPrice } = data.contentfulProduct
   const postNode = data.contentfulProduct
-
   return (
     <div>
       <Helmet>
@@ -21,7 +21,11 @@ const ProductTemplate = ({ data }) => {
         <div>
           {slogan}
           {shortDescription}
-          <img src={mainImage.file.url} alt=""/>
+          <Img
+            height={mainImage.height}
+            sizes={mainImage.sizes}
+            backgroundColor={'#eeeeee'}
+          />
           {startingPrice}
         </div>
       </Container>
@@ -37,8 +41,8 @@ export const query = graphql`
       slogan
       shortDescription
       mainImage {
-        file {
-          url
+        sizes(maxWidth: 1800) {
+          ...GatsbyContentfulSizes_withWebp_noBase64
         }
       }
       startingPrice

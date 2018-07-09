@@ -4,9 +4,8 @@ import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
-// import fingoods from '../data/fingoods.js'
+import fingoods from '../data/fingoods.js'
 
-// console.log(fingoods)
 
 const Compare = ({ data }) => {
   const postNode = {
@@ -22,9 +21,11 @@ const Compare = ({ data }) => {
 
       <Container>
         <PageTitle>Compare</PageTitle>
-        <div>Product</div>
-        <div>Product</div>
-        <div>Product</div>
+        {fingoods.map((val, idx) => 
+          <h3>
+            {val.mow_sku}___{'$' + val.msrp.toLocaleString()}
+          </h3>
+        )}
       </Container>
     </div>
   )

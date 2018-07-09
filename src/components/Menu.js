@@ -29,12 +29,12 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   flex-direction: row;
-
+  padding: 0em .7em;
   a {
     text-decoration: none;
     color: ${props => props.theme.colors.highlight};
     transition: all 0.2s;
-    padding: 1em .5em;
+    padding: 1em .6em;
     display: block;
     white-space:nowrap;
     &:hover {
@@ -49,7 +49,9 @@ const Nav = styled.nav`
     -webkit-mask-image: -webkit-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
     -webkit-mask-image: -moz-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15px, black 90%, transparent);
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 `
 

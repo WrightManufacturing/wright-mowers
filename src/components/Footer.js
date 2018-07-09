@@ -12,32 +12,19 @@ const Wrapper = styled.footer`
   color: ${props => props.theme.colors.base};
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   margin: auto;
   margin-bottom: 2rem;
   max-width: ${props => props.theme.sizes.maxWidth};
-  /* @media (max-width: ${props => props.theme.responsive.small}) {
+  @media (max-width: ${props => props.theme.responsive.small}) {
     justify-content: flex-start;
-  } */
+  }
 `
 
 const List = styled.ul`
-  margin: 1rem;
-  margin-bottom: 0rem;
-  padding-top: .5em;
-  padding-left: .5em;
-  padding-bottom: 0em;
-  img {
-    display: inline;
-    margin-right: 1.5rem;
-    width: auto;
-    height: 1.5em;
-    &:hover {
-      opacity: .8;
-    }
-  }
-
+  margin: 1.5rem 1rem 0rem 1rem;
+  padding: .5rem auto 0rem .5rem;
 `
 
 const Item = styled.li`
@@ -48,8 +35,6 @@ const Item = styled.li`
   div {
     font-size: 1.5rem;
     font-weight: 500;
-    /* padding-bottom: .4rem; */
-    /* border-bottom: 2px solid ${props => props.theme.colors.base}; */
   }
 
   a {
@@ -58,7 +43,7 @@ const Item = styled.li`
     color: ${props => props.theme.colors.base};
     text-decoration: none;
     background-color: ${props => props.theme.colors.tertiary};
-    border-radius: 5px 0px;
+    border-radius: 5px;
     padding: .25em .75em;
     &:hover {
       color: black;
@@ -67,20 +52,27 @@ const Item = styled.li`
   }
 `
 
+const SocialIcon = styled.img`
+  display: inline;
+  margin-right: 1.5rem;
+  width: auto;
+  height: 1.5em;
+  &:hover {
+    opacity: .8;
+  }
+`
+
 const Copyright = styled.div`
   width: 100%;
   text-align: center;
-  margin-top: 2em;
+  margin-top: 1rem;
   a, span {
     display: inline-block;
     color: ${props => props.theme.colors.base};
-    margin-top: 1rem;
+    margin-top: 2rem;
     padding: 0rem 1rem;
     text-decoration: none;
     white-space:nowrap;
-    &:not(:last-child) {
-      border-right: 1px solid ${props => props.theme.colors.base};
-    }
   }
   a {
     &:hover {
@@ -123,7 +115,7 @@ const Footer = () => (
     </Link>
   </Item>
   <Item>
-    <a href="https://purchase.wrightmfg.com/" target="_blank" >Dealer & Distributor</a>
+    <a href="https://purchase.wrightmfg.com/" target="_blank" rel='noopener noreferrer'>Dealer & Distributor</a>
   </Item>
 </List>
 
@@ -157,7 +149,7 @@ const Footer = () => (
     </Link>
   </Item>
   <Item>
-    <a href="http://apparel.wrightmfg.com/" target="_blank" >Apparel</a>
+    <a href="http://apparel.wrightmfg.com/" target="_blank" rel='noopener noreferrer'>Apparel</a>
   </Item>
 </List>
 
@@ -177,49 +169,45 @@ const Footer = () => (
     </Link>
   </Item>
   <Item>
-    <a href="https://store.wrightmfg.com/" target="_blank" >
+    <a href="https://store.wrightmfg.com/" target="_blank" rel='noopener noreferrer'>
       Online Store
     </a>
   </Item>
 </List>
 
-<List>
-  <Item>
-    <div>Social</div>
-  </Item>
-  <a href="https://www.instagram.com/wright_mowers/" target="_blank" >
-    <img src={instagram} alt=""/>
+<Copyright>
+  
+
+  <a href="https://www.youtube.com/user/WrightMowers" target="_blank" rel='noopener noreferrer'>
+    <SocialIcon src={youtube} alt="youtube"/>
   </a>
 
-  <a href="https://www.youtube.com/user/WrightMowers" target="_blank" >
-    <img src={youtube} alt=""/>
+  <a href="https://www.instagram.com/wright_mowers/" target="_blank" rel='noopener noreferrer' >
+    <SocialIcon src={instagram} alt="instagram"/>
   </a>
 
-  <a href="https://www.facebook.com/wrightcommercialproducts" target="_blank" >
-    <img src={facebook} alt=""/>
+  <a href="https://www.facebook.com/wrightcommercialproducts" target="_blank" rel='noopener noreferrer'>
+    <SocialIcon src={facebook} alt="facebook"/>
   </a>
 
-  <a href="https://twitter.com/wrightmowers" target="_blank" >
-    <img src={twitter} alt=""/>
+  <a href="https://twitter.com/wrightmowers" target="_blank" rel='noopener noreferrer'>
+    <SocialIcon src={twitter} alt="twitter"/>
   </a>
 
-  <a href="https://wolf.wrightmfg.com/" target="_blank" >
-    <img src={wolf} alt=""/>
+  <a href="https://wolf.wrightmfg.com/" target="_blank" rel='noopener noreferrer'>
+    <SocialIcon src={wolf} alt="wolf loyalty owners group"/>
   </a>
-</List>
+</Copyright>
 
-  <Copyright>
-    <span>Wright Manufacturing, Inc. © 2018</span>
+<Copyright style={{opacity: '.5'}}>
+    <span style={{whiteSpace: 'normal'}}>Copyright © 2018 Wright Manufacturing, Inc. </span>
     <Link to="/privacy-policy/" >
       Privacy Policy
     </Link>
     <Link to="/trademarks/" >
       Trademarks
     </Link>
-    <Link to="/contact/" >
-      Contact
-    </Link>
-  </Copyright>
+</Copyright>
 
 
 </Wrapper>
