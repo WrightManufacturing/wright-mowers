@@ -47,11 +47,13 @@ const Feature = props => {
       {props.features.map(feature => (
         <Item key={feature.id}>
           <h4>{feature.title}</h4>
-          <FeatureImage
-            height={feature.featureAsset.height}
-            sizes={feature.featureAsset.sizes}
-            backgroundColor={props => props.theme.colors.secondary}
-          />
+          {feature.featureAsset &&
+            <FeatureImage
+              height={feature.featureAsset.height}
+              sizes={feature.featureAsset.sizes}
+              backgroundColor={props => props.theme.colors.secondary}
+            />
+          }
           <p>{feature.description.internal.content}</p>
         </Item>
       ))}
