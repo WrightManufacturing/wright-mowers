@@ -10,7 +10,6 @@ import Link from 'gatsby-link'
 const Index = ({ data }) => {
   const posts = data.allContentfulPost.edges
   const tags = data.allContentfulTag.edges
-  console.log(tags)
   return (
     <div>
       <SEO />

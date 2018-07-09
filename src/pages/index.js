@@ -5,8 +5,6 @@ import SEO from '../components/SEO'
 // import Link from 'gatsby-link'
 import styled from 'styled-components'
 
-import zk from '../images/zk.jpg'
-
 const SubTitle = styled.h2`
   font-size: ${props => (props.small ? '1.8em' : '2.5em')};
   text-transform: capitalize;
@@ -26,9 +24,6 @@ const SubTitle = styled.h2`
   }
 `
 
-const Image = styled.img`
-  border-radius: .3em;
-`
 
 const Index = () => {
   return (
@@ -37,7 +32,6 @@ const Index = () => {
       <Container>
         <SubTitle>The Future Of Mowing.</SubTitle>
         <PageTitle small >Stander ZK Gen 2</PageTitle>
-        <img src={zk} alt="zk"/>
         <div style={{height: '12em'}}>
 
         </div>
