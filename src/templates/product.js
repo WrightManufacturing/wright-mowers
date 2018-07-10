@@ -21,7 +21,7 @@ const ProductNav = styled.div`
   position: fixed;
   z-index: 9;
   width: 100%;
-  background-color:rgba(242, 242, 242, 0.8);
+  background-color:rgba(242, 242, 242, 0.9);
   border-bottom: 1px solid ${props => props.theme.colors.base};
   padding: .4rem .5rem;
   div {
@@ -79,9 +79,11 @@ const CompareTable = styled.table`
   overflow-y: hidden;
   margin: auto;
   width: 300px;
-  
+  @media (max-width: ${props => props.theme.responsive.small}) {
+      display: none;
+    }
   tbody {
-    
+
   }
   th {
     text-align: left;
@@ -138,20 +140,16 @@ const ProductTemplate = ({ data }) => {
                 <CompareTable>
         <tbody>
         <tr>
-          <th>Mower Family</th>
           <th>SKU (Model)</th>
           <th>Deck</th>
-          <th>Deck Type</th>
           <th>Engine</th>
           <th>Price</th>
           <th><span>16% off</span></th>
         </tr>
           {fingoods.filter(val => val.mow_family === title).map((mower) => 
             <tr key={mower.mow_sku}>
-              <td>{mower.mow_family}</td>
               <td>{mower.mow_sku}</td>
               <td>{mower.deck_size}</td>
-              <td>{mower.deck_type.split('-')[0]}</td>
               <td>{mower.vendor} {mower.model}</td>
               <td>{'$'}{mower.msrp.toLocaleString()}</td>
               <td><span>{'$'}{Math.round(mower.msrp*.84).toLocaleString()}</span></td>

@@ -32,7 +32,7 @@
     "react-geolocated": "^2.4.0",
     "react-headroom": "^2.2.2",
     "react-helmet": "^5.2.0",
-    "react-instantsearch": "^5.1.0",
+    "react-instantsearch": "^5.2.0",
     "react-map-gl": "^3.2.10",
     "roboto-fontface": "^0.9.0",
     "styled-components": "^3.3.2",
