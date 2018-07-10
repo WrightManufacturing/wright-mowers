@@ -14,7 +14,7 @@ const List = styled.div`
 `
 
 const Item = styled.section`
-  background-color: ${props => props.theme.colors.secondary};
+  /* background-color: ${props => props.theme.colors.secondary}; */
   display: block;
   margin: 1rem;
   border-radius: 5px;
@@ -22,7 +22,7 @@ const Item = styled.section`
   text-align: center;
   h4 {
     font-weight: 500;
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin: 1rem;
   }
   p {

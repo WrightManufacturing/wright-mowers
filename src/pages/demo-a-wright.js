@@ -3,10 +3,10 @@ import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
-import ContactForm from '../components/ContactForm'
+import DemoForm from '../components/DemoForm'
 import SEO from '../components/SEO'
 
-const DemoForm = ({ data }) => {
+const DemoWright = ({ data }) => {
   const postNode = {
     title: `Contact - ${config.siteTitle}`,
   }
@@ -21,10 +21,10 @@ const DemoForm = ({ data }) => {
       <Container>
         <PageTitle>Demo A Wright</PageTitle>
         
-        <ContactForm />
+        <DemoForm />
       </Container>
     </div>
   )
 }
 
-export default DemoForm
+export default DemoWright

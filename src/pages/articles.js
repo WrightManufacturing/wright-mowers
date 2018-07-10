@@ -38,7 +38,7 @@ const Index = ({ data }) => {
 
         <TagList >
           {tags.map(({node: tag}, idx) => (
-              <Link key={idx} to={`/tag/${tag.slug}/`}>{tag.title} ➡️</Link>
+              <Link key={idx} to={`/tag/${tag.slug}/`}>{tag.title}</Link>
           ))}
         </TagList>
         

@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import logo from '../images/logo.svg'
+import Headroom from 'react-headroom'
 
 const HeaderFullWidth = styled.div`
   background: ${props => props.theme.colors.base};
@@ -30,6 +31,7 @@ const Nav = styled.nav`
   align-items: center;
   flex-direction: row;
   padding: 0em .7em;
+  margin-right: 0;
   a {
     text-decoration: none;
     color: ${props => props.theme.colors.highlight};
