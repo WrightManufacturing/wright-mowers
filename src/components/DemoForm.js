@@ -143,15 +143,12 @@ const encode = data => {
 }
 
 class DemoForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
+    state = {
       name: '',
       email: '',
       message: '',
       showModal: false,
     }
-  }
 
   handleInputChange = event => {
     const target = event.target
