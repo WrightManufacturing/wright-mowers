@@ -34,6 +34,7 @@
     "react-helmet": "^5.2.0",
     "react-instantsearch": "^5.2.0",
     "react-map-gl": "^3.2.10",
+    "react-player": "^1.6.4",
     "roboto-fontface": "^0.9.0",
     "styled-components": "^3.3.2",
     "typeface-roboto": "0.0.54",

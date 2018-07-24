@@ -9,12 +9,26 @@ import Link from 'gatsby-link'
 import Feature from '../components/Feature'
 import Hero from '../components/Hero'
 import fingoods from '../data/fingoods.js'
+import ReactPlayer from 'react-player'
+import CompareTable from '../components/CompareTable'
 
-
-const Slogan = styled.h2`
+const Slogan = styled.section`
   text-align: center;
-  font-size: 2em;
-  font-weight: 300;
+  background-color: ${props => props.theme.colors.base};
+  color: ${props => props.theme.colors.tertiary};
+  div {
+    max-width: ${props => props.theme.sizes.maxWidthCentered};
+    margin: auto;
+    padding: 1rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    line-height: 1.4rem;
+  }
 `
 
 const ProductNav = styled.div`
@@ -31,7 +45,6 @@ const ProductNav = styled.div`
     align-items: center;
     justify-content: flex-end;
     margin: auto;
-
   }
   a {
     text-decoration: none;
@@ -70,49 +83,20 @@ const ProductNav = styled.div`
       font-size: 1.1rem;
     }
   }
-
 `
 
-const CompareTable = styled.table`
-  white-space:nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin: auto;
-  width: 300px;
-  @media (max-width: ${props => props.theme.responsive.small}) {
-      display: none;
-    }
-  tbody {
-
-  }
-  th {
-    text-align: left;
-    padding: .5rem .6rem;
-    color: ${props => props.theme.colors.base};
-    background-color: ${props => props.theme.colors.secondary};
-    border: 2px solid ${props => props.theme.colors.secondary};
-    border-right: solid white -3px;
-    font-weight: 500;
-    font-size: 1.1rem;
-  }
-  tr {
-    transition: all 0.1s;
-    &:hover {
-      background-color: ${props => props.theme.colors.secondary};
-    }
-  }
-  td {
-    padding: .5rem .6rem;
-    border: 2px solid ${props => props.theme.colors.secondary};
-  }
-  span {
-    color: green;
-  }
-`
 
 const ProductTemplate = ({ data }) => {
-  const { title, slug, slogan, shortDescription, mainImage, startingPrice, features } = data.contentfulProduct
+  const { title, slug, slogan, shortDescription, mainImage, features, youtubeVideo } = data.contentfulProduct
   const postNode = data.contentfulProduct
+  const videoOptions = {
+    height: '360',
+    width: '640',
+    playerVars: {
+      modestbranding: 1,
+      rel: 0
+    }
+  };
   return (
     <div>
       <Helmet>
@@ -127,25 +111,45 @@ const ProductTemplate = ({ data }) => {
           <Link to="/stand-on/">Buy</Link>
           </div>
       </ProductNav>
-      <Hero title={title} image={mainImage} height={'50vh'} />
+      <Hero title={title} image={mainImage} height={'35vh'} />
+
+      <Slogan>
+        <div>
+        <h2>{slogan}</h2>
+        <p>{shortDescription}</p>
+        </div>
+      </Slogan>
 
       <Container>
         
-          <Slogan>{slogan}</Slogan>
-          <hr/>
-          <Slogan>{shortDescription}</Slogan>
+          <ReactPlayer
+            style={{
+              // width: '640px',
+              // height: '375px',
+              margin: 'auto',
+              paddingBottom: '1rem'
+            }}
+            url={youtubeVideo}
+            config={{
+              youtube: {
+                playerVars: { 
+                  controls: 1
+                }
+              }
+            }}
+          />
 
           {features && <Feature features={features} />}
 
-                <CompareTable>
-        <tbody>
-        <tr>
-          <th>SKU (Model)</th>
-          <th>Deck</th>
-          <th>Engine</th>
-          <th>Price</th>
-          <th><span>16% off</span></th>
-        </tr>
+        <CompareTable>
+          <tbody>
+          <tr>
+            <th>SKU (Model)</th>
+            <th>Deck</th>
+            <th>Engine</th>
+            <th>Price</th>
+            <th><span>16% off</span></th>
+          </tr>
           {fingoods.filter(val => val.mow_family === title).map((mower) => 
             <tr key={mower.mow_sku}>
               <td>{mower.mow_sku}</td>
@@ -155,9 +159,8 @@ const ProductTemplate = ({ data }) => {
               <td><span>{'$'}{Math.round(mower.msrp*.84).toLocaleString()}</span></td>
             </tr>
           )}
-        </tbody>
-      </CompareTable>
-
+          </tbody>
+        </CompareTable>
       </Container>
     </div>
   )
@@ -170,6 +173,7 @@ export const query = graphql`
       slug
       slogan
       shortDescription
+      youtubeVideo
       features {
         id
         title
@@ -179,7 +183,7 @@ export const query = graphql`
           }
         }
         featureAsset {
-          sizes(maxWidth: 400) {
+          sizes(maxWidth: 500) {
           ...GatsbyContentfulSizes_withWebp_noBase64
           }
         }
@@ -189,7 +193,6 @@ export const query = graphql`
           ...GatsbyContentfulSizes_withWebp_noBase64
         }
       }
-      startingPrice
       metaDescription {
         internal {
           content
