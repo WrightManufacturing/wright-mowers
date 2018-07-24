@@ -81,8 +81,8 @@ export const query = graphql`
         id
         title
         description {
-          internal {
-            content
+          childMarkdownRemark {
+            html
           }
         }
         featureAsset {

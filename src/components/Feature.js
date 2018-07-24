@@ -1,6 +1,7 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import CompareTable from '../components/CompareTable'
 
 const List = styled.div`
   display: flex;
@@ -9,10 +10,15 @@ const List = styled.div`
 `
 
 const Item = styled.div`
-  margin: 0rem 1rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin: .75rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: ${props => props.theme.colors.tertiary};
+  strong {
+    font-weight: bold;
+  }
   h4 {
     text-align: left;
     font-weight: 500;
@@ -25,31 +31,27 @@ const Item = styled.div`
     text-align: left;
   }
   section {
-    width: 50%;
+    padding: .6rem;
   }
   &:nth-child(even) {
-    background-color: ${props => props.theme.colors.tertiary};
     flex-direction: row-reverse;
-    p {
-      text-align: right;
-    }
-    h4 {
-      text-align: right;
-    }
   }
-  @media (max-width: ${props => props.theme.responsive.small}) {
+  @media (max-width: ${props => props.theme.responsive.medium}) {
     p {
       text-align: left;
     }
     margin: .7rem 0;
-    flex-direction: column;
+    display: block;
   }
 `
 
 const FeatureImage = styled(Img)`
-background-color: white;
+  background-color: white;
   width: 30rem;
   height: auto;
+  @media (max-width: ${props => props.theme.responsive.medium}) {
+    width: 100%;
+  }
 `
 
 const Feature = props => {
@@ -59,14 +61,14 @@ const Feature = props => {
         <Item key={feature.id}>
             {feature.featureAsset &&
               <FeatureImage
-              height={feature.featureAsset.height}
-              sizes={feature.featureAsset.sizes}
-              backgroundColor={props => props.theme.colors.secondary}
+                height={feature.featureAsset.height}
+                sizes={feature.featureAsset.sizes}
+                backgroundColor={props => props.theme.colors.secondary}
               />
             }
           <section>
             <h4>{feature.title}</h4>
-            <p>{feature.description.internal.content}</p>
+            <div dangerouslySetInnerHTML={{ __html: feature.description.childMarkdownRemark.html }} ></div>
           </section>
         </Item>
       ))}

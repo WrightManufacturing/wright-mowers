@@ -8,9 +8,7 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Feature from '../components/Feature'
 import Hero from '../components/Hero'
-import fingoods from '../data/fingoods.js'
 import ReactPlayer from 'react-player'
-import CompareTable from '../components/CompareTable'
 
 const Slogan = styled.section`
   text-align: center;
@@ -27,7 +25,8 @@ const Slogan = styled.section`
   p {
     font-size: 1.2rem;
     margin-top: 1rem;
-    line-height: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: 300;
   }
 `
 
@@ -85,24 +84,18 @@ const ProductNav = styled.div`
   }
 `
 
-
 const ProductTemplate = ({ data }) => {
   const { title, slug, slogan, shortDescription, mainImage, features, youtubeVideo } = data.contentfulProduct
   const postNode = data.contentfulProduct
-  const videoOptions = {
-    height: '360',
-    width: '640',
-    playerVars: {
-      modestbranding: 1,
-      rel: 0
-    }
-  };
   return (
     <div>
+
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
+
       <SEO pagePath={slug} postNode={postNode} pageSEO />
+
       <ProductNav>
           <div>
           <PageTitle>{title}</PageTitle>
@@ -111,23 +104,24 @@ const ProductTemplate = ({ data }) => {
           <Link to="/stand-on/">Buy</Link>
           </div>
       </ProductNav>
+
       <Hero title={title} image={mainImage} height={'35vh'} />
 
       <Slogan>
         <div>
-        <h2>{slogan}</h2>
-        <p>{shortDescription}</p>
+          <h2>{slogan}</h2>
+          <p>{shortDescription}</p>
         </div>
       </Slogan>
 
       <Container>
-        
-          <ReactPlayer
+
+          {features && <Feature features={features} />}
+
+          {/* <ReactPlayer
             style={{
-              // width: '640px',
-              // height: '375px',
-              margin: 'auto',
-              paddingBottom: '1rem'
+              width: '100px',
+              height: '100px'
             }}
             url={youtubeVideo}
             config={{
@@ -137,30 +131,8 @@ const ProductTemplate = ({ data }) => {
                 }
               }
             }}
-          />
+          /> */}
 
-          {features && <Feature features={features} />}
-
-        <CompareTable>
-          <tbody>
-          <tr>
-            <th>SKU (Model)</th>
-            <th>Deck</th>
-            <th>Engine</th>
-            <th>Price</th>
-            <th><span>16% off</span></th>
-          </tr>
-          {fingoods.filter(val => val.mow_family === title).map((mower) => 
-            <tr key={mower.mow_sku}>
-              <td>{mower.mow_sku}</td>
-              <td>{mower.deck_size}</td>
-              <td>{mower.vendor} {mower.model}</td>
-              <td>{'$'}{mower.msrp.toLocaleString()}</td>
-              <td><span>{'$'}{Math.round(mower.msrp*.84).toLocaleString()}</span></td>
-            </tr>
-          )}
-          </tbody>
-        </CompareTable>
       </Container>
     </div>
   )
@@ -178,8 +150,8 @@ export const query = graphql`
         id
         title
         description {
-          internal {
-            content
+          childMarkdownRemark {
+            html
           }
         }
         featureAsset {

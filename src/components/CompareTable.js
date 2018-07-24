@@ -1,12 +1,8 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const CompareTable = styled.table`
   white-space:nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin: auto;
-  width: 300px;
+
   
   tbody {
     
