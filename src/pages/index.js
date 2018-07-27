@@ -2,7 +2,6 @@ import React from 'react'
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
-// import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 const SubTitle = styled.h2`
@@ -24,7 +23,6 @@ const SubTitle = styled.h2`
   }
 `
 
-
 const Index = () => {
   return (
     <div>
@@ -32,13 +30,10 @@ const Index = () => {
       <Container>
         <SubTitle>The Future Of Mowing.</SubTitle>
         <PageTitle small >Stander ZK Gen 2</PageTitle>
-        <div style={{height: '12em'}}>
 
-        </div>
       </Container>
     </div>
   )
 }
 
 export default Index
-

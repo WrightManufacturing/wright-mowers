@@ -7,6 +7,7 @@ import SEO from '../components/SEO'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Feature from '../components/Feature'
+import ProductSpec from '../components/ProductSpec'
 import Hero from '../components/Hero'
 import ReactPlayer from 'react-player'
 
@@ -84,6 +85,13 @@ const ProductNav = styled.div`
   }
 `
 
+const SpecContainer = styled.div`
+  background-color: ${props => props.theme.colors.tertiary};
+  width: 100%;
+  margin: auto;
+`
+
+
 const ProductTemplate = ({ data }) => {
   const { title, slug, slogan, shortDescription, mainImage, features, youtubeVideo } = data.contentfulProduct
   const postNode = data.contentfulProduct
@@ -97,12 +105,11 @@ const ProductTemplate = ({ data }) => {
       <SEO pagePath={slug} postNode={postNode} pageSEO />
 
       <ProductNav>
-          <div>
+        <div>
           <PageTitle>{title}</PageTitle>
-          <Link to="/stand-on/">Specs</Link>
-          <Link to="/stand-on/">Configure</Link>
+          <Link to="/stand-on/">Specs & Pricing</Link>
           <Link to="/stand-on/">Buy</Link>
-          </div>
+        </div>
       </ProductNav>
 
       <Hero title={title} image={mainImage} height={'35vh'} />
@@ -117,6 +124,7 @@ const ProductTemplate = ({ data }) => {
       <Container>
 
           {features && <Feature features={features} />}
+
 
           {/* <ReactPlayer
             style={{
@@ -134,6 +142,10 @@ const ProductTemplate = ({ data }) => {
           /> */}
 
       </Container>
+
+                <SpecContainer>
+            <ProductSpec title={title} />
+          </ SpecContainer>
     </div>
   )
 }
