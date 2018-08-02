@@ -205,7 +205,6 @@ class ProductSpec extends React.Component {
                 {<span key={idx}>{blades[idx][0]}</span>}
               </section>
             )}
-
       </Specs>
     )
   }
