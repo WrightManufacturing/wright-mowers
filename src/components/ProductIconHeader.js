@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 const List = styled.ul`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: row;
   justify-content: center;

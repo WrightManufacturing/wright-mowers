@@ -35,8 +35,7 @@ const ProductNav = styled.div`
   position: fixed;
   z-index: 9;
   width: 100%;
-  background-color:rgba(242, 242, 242, 0.9);
-  border-bottom: 1px solid ${props => props.theme.colors.base};
+  background-color: rgba(233, 233, 233, 0.9);
   padding: .4rem .5rem;
   div {
     max-width: ${props => props.theme.sizes.maxWidth};
@@ -55,8 +54,8 @@ const ProductNav = styled.div`
     font-weight: 600;
     align-self: center;
     &:last-child {
-      background-color:rgba(51, 51, 51, 0.8);
-      color: white;
+      background-color: ${props => props.theme.colors.highlight};
+      color: ${props => props.theme.colors.base};
       font-weight: 500;
       border-radius: 1rem;
       border: none;
@@ -90,7 +89,6 @@ const SpecContainer = styled.div`
   width: 100%;
   margin: auto;
 `
-
 
 const ProductTemplate = ({ data }) => {
   const { title, slug, slogan, shortDescription, mainImage, features, youtubeVideo } = data.contentfulProduct
@@ -143,9 +141,10 @@ const ProductTemplate = ({ data }) => {
 
       </Container>
 
-                <SpecContainer>
-            <ProductSpec title={title} />
-          </ SpecContainer>
+      <SpecContainer>
+        <ProductSpec title={title} />
+      </ SpecContainer>
+
     </div>
   )
 }

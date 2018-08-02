@@ -25,7 +25,6 @@ const Description = styled.p`
   }
 `
 
-
 const CategoryTemplate = ({ data }) => {
   const { title, slug, slogan, mainImage, features, products, longDescription} = data.contentfulCategory
   const postNode = data.contentfulCategory

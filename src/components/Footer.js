@@ -7,7 +7,6 @@ import twitter from '../images/twitter.svg'
 import wolf from '../images/wolf.svg'
 import youtube from '../images/youtube.svg'
 
-
 const Wrapper = styled.footer`
   color: ${props => props.theme.colors.base};
   display: flex;
@@ -30,8 +29,6 @@ const List = styled.ul`
 const Item = styled.li`
   display: block;
   margin-bottom: 1.5em;
-  width: auto;
-
   div {
     font-size: 1.5rem;
     font-weight: 500;
@@ -43,17 +40,15 @@ const Item = styled.li`
     color: ${props => props.theme.colors.base};
     text-decoration: none;
     background-color: ${props => props.theme.colors.tertiary};
-    border-radius: 5px;
+    border-radius: 3px;
     padding: .25em .75em;
     &:hover {
-      color: black;
-      background-color: #d1d1d1;
+      text-decoration: underline;
     }
   }
 `
 
 const SocialIcon = styled.img`
-  display: inline;
   margin-right: 1.5rem;
   width: auto;
   height: 1.5em;

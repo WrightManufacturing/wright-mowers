@@ -6,7 +6,6 @@ import CompareTable from '../components/CompareTable'
 const List = styled.div`
   display: flex;
   flex-direction: column;
-  
 `
 
 const Item = styled.div`
@@ -63,7 +62,6 @@ const Feature = props => {
               <FeatureImage
                 height={feature.featureAsset.height}
                 sizes={feature.featureAsset.sizes}
-                backgroundColor={props => props.theme.colors.secondary}
               />
             }
           <section>

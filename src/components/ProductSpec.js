@@ -62,7 +62,6 @@ const Specs = styled.div`
       }
     }
   }
-    
 `
 
 const Model = styled.div`
@@ -213,7 +212,6 @@ class ProductSpec extends React.Component {
 }
 
 export default ProductSpec
-
 
 // If there are multiple specs per product, split them up by deck size.
 // If not, show just the spec without deck size
