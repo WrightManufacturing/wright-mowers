@@ -105,9 +105,12 @@ const Footer = () => (
     </Link>
   </Item>
   <Item>
-    <Link to="/careers/" >
-      Careers
+    <Link to="/marketing-assets/" >
+      Marketing Assets
     </Link>
+  </Item>
+  <Item>
+    <a href="https://www.indeedjobs.com/wright-manufacturing-inc/_hl/en_US" target="_blank" rel='noopener noreferrer'>Careers</a>
   </Item>
   <Item>
     <a href="https://purchase.wrightmfg.com/" target="_blank" rel='noopener noreferrer'>Dealer & Distributor</a>

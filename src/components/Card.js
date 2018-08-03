@@ -8,7 +8,7 @@ const Post = styled.li`
   border-radius: 2px;
   margin: 0 0 1em 0;
   width: 100%;
-  transition: background 0.2s;
+  transition: box-shadow 0.2s;
   background-color: ${props =>  props.theme.colors.tertiary};
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 49%;
@@ -18,7 +18,7 @@ const Post = styled.li`
     flex: 0 0 32%;
   }
   &:hover {
-    background: ${props => props.theme.colors.tertiary};
+    box-shadow: 0 3px 5px rgba(0,0,0,0.14), 0 3px 5px rgba(0,0,0,0.2);
   }
   a {
     display: flex;

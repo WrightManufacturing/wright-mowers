@@ -21,6 +21,18 @@ const Contact = ({ data }) => {
       <Container>
         <PageTitle>Contact</PageTitle>
         <ContactForm />
+
+        <ul style={{textAlign: 'center'}}>
+          <li>Address</li>
+          <li>Wright Manufacturing, Inc.</li>
+          <li>4600X Wedgewood Boulevard</li>
+          <li>Frederick, MD 21703</li>
+        </ul>
+        <br/>
+        <ul style={{textAlign: 'center'}}>
+          <li>Phone</li>
+          <li>(301) 360-9810</li>
+        </ul>
       </Container>
     </div>
   )

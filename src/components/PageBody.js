@@ -5,7 +5,6 @@ require('prismjs/themes/prism.css')
 const Body = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
-
   h1,
   h2,
   h3 {
@@ -32,9 +31,10 @@ const Body = styled.div`
 
   a {
     transition: 0.2s;
-    color: ${props => props.theme.colors.base};
+    color: ${props => props.theme.colors.highlight};
+    text-decoration: none;
     &:hover {
-      color: ${props => props.theme.colors.highlight};
+      text-decoration: underline;
     }
   }
 
@@ -58,9 +58,6 @@ const Body = styled.div`
       list-style: disc;
       list-style-position: inside;
       line-height: 1.25;
-      &:last-child {
-        margin: 0;
-      }
     }
   }
 
@@ -73,6 +70,12 @@ const Body = styled.div`
         margin: 0;
       }
     }
+  }
+
+  li {
+    text-indent: -1.3em;
+    padding-left: 1em;
+    margin-bottom: .5rem;
   }
 
   hr {
@@ -96,14 +99,50 @@ const Body = styled.div`
     }
   }
 
+  table {
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 5px;
+  }
+
+  tr {
+    border-bottom: 1px solid ${props => props.theme.colors.base};
+    &:last-child {
+      border-bottom: none;
+      td {
+        &:first-child {
+          border-bottom-left-radius: 5px;
+        }
+        &:last-child {
+          border-bottom-right-radius: 5px;
+        }
+      }
+      
+    }
+  }
+
+  th, td {
+    border-right: 1px solid ${props => props.theme.colors.base};
+    &:last-child {
+      border-right: none;
+    }
+  }
+
   th {
-    padding: .2em;
-    border: 1px solid ${props => props.theme.colors.secondary};
-    background-color: ${props => props.theme.colors.secondary};
+    padding: .6em 1rem;
+    font-weight: 500;
+    background-color: ${props => props.theme.colors.highlight};
+    &:first-child {
+      border-top-left-radius: 5px;
+    }
+    &:last-child {
+      border-top-right-radius: 5px;
+    }
   }
   td {
-    padding: .2em;
-    border: 1px solid ${props => props.theme.colors.secondary};
+    padding: .5em;
+    color: ${props => props.theme.colors.base};
+    background-color: ${props => props.theme.colors.tertiary};
   }
 
   img {
