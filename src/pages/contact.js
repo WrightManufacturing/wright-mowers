@@ -19,10 +19,10 @@ const Contact = ({ data }) => {
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
       <Container>
-        <PageTitle>Contact</PageTitle>
+        <PageTitle>Contact Wright</PageTitle>
         <ContactForm />
 
-        <ul style={{textAlign: 'center'}}>
+        {/* <ul style={{textAlign: 'center'}}>
           <li>Address</li>
           <li>Wright Manufacturing, Inc.</li>
           <li>4600X Wedgewood Boulevard</li>
@@ -32,7 +32,7 @@ const Contact = ({ data }) => {
         <ul style={{textAlign: 'center'}}>
           <li>Phone</li>
           <li>(301) 360-9810</li>
-        </ul>
+        </ul> */}
       </Container>
     </div>
   )

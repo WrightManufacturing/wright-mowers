@@ -16,9 +16,9 @@ const Post = styled.li`
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     flex: 0 0 32%;
-  }
-  &:hover {
+    &:hover {
     box-shadow: 0 3px 5px rgba(0,0,0,0.14), 0 3px 5px rgba(0,0,0,0.2);
+    }
   }
   a {
     display: flex;

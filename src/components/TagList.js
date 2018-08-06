@@ -9,10 +9,11 @@ const List = styled.ul`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   margin: auto;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
   padding-bottom: 1rem;
-  border-top: solid 2px ${props => props.theme.colors.tertiary};
-  border-bottom: solid 2px ${props => props.theme.colors.tertiary};
+  border-top: solid 2px ${props => props.theme.colors.secondary};
+  border-bottom: solid 2px ${props => props.theme.colors.secondary};
   @media (max-width: ${props => props.theme.responsive.small}) {
     flex-direction: column;
     align-items: flex-start;

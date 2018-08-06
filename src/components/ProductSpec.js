@@ -112,11 +112,8 @@ class ProductSpec extends React.Component {
     const blades = decks.map(deck => data.filter(({deck_size})=> deck_size === deck).map(({blade_length, blade_quantity}) => `${blade_length}" (${blade_quantity})`))
     return (
       <Specs>
-
         <h1>Specs</h1>
-
         <h3>Deck + Engine Options</h3>
-
         {this.state.data.map(({deck_size, vendor, model, horsepower, msrp, mow_sku}) => 
             <Model key={mow_sku}>
               <div>
@@ -140,7 +137,6 @@ class ProductSpec extends React.Component {
                   {mow_sku}
                 </p>
               </div>
-
             </Model>
           )}
 
@@ -149,6 +145,8 @@ class ProductSpec extends React.Component {
            <p>{this.getUnique('pump')}</p>
         <h4>Motors</h4>
            <p>{this.getUnique('motor')}</p>
+        <h4>Transaxle</h4>
+           <p>{this.getUnique('transaxle')}</p>
         
         <h3>Fuel</h3>
           <p>{this.getUnique('fuel_capacity')} Gal.</p>

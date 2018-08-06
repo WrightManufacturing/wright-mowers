@@ -1,5 +1,4 @@
 import React from 'react'
-import find from 'lodash/find'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Hero from '../components/Hero'
@@ -8,23 +7,22 @@ import PageBody from '../components/PageBody'
 import TagList from '../components/TagList'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
+import CardList from '../components/CardList'
+import Card from '../components/Card'
 
 const PostTemplate = ({ data }) => {
   const {
     title,
     slug,
-    id,
     heroImage,
     body,
     publishDate,
     tags,
   } = data.contentfulPost
+
   const postNode = data.contentfulPost
 
-  const postGroup = find(
-    data.allContentfulPost.edges,
-    ({ node: post }) => post.tags[0] === tags[0]
-  )
+  const postGroup = data.allContentfulPost.edges.filter(({node: post}) => post.tags[0].title === tags[0].title && title !== post.title)
 
   return (
     <div>
@@ -36,9 +34,33 @@ const PostTemplate = ({ data }) => {
       <Hero title={title} image={heroImage} height={'50vh'} />
 
       <Container>
+        <PostDate date={publishDate} />
         <PageBody body={body} />
         {tags && <TagList tags={tags} />}
-        <PostDate date={publishDate} />
+
+        {postGroup.length > 0 &&
+          <h4 
+          style={{
+            fontWeight: '700',
+            margin: '1rem 0rem',
+            fontSize: '1.3rem'
+          }}
+        >Related:</h4>
+        }
+
+        <CardList>
+          {postGroup.map(({ node: post }) => (
+            <Card
+              key={post.id}
+              slug={post.slug}
+              image={post.heroImage}
+              title={post.title}
+              date={post.publishDate}
+              excerpt={post.body}
+            />
+          ))}
+        </CardList>
+
       </Container>
     </div>
   )
@@ -83,11 +105,26 @@ export const query = graphql`
     allContentfulPost {
       edges {
         node {
-          id
           title
+          id
           slug
           tags {
             title
+            slug
+            id
+          }
+          publishDate(formatString: "MMMM DD, YYYY")
+          heroImage {
+            title
+            sizes(maxWidth: 1800) {
+              ...GatsbyContentfulSizes_withWebp_noBase64
+            }
+          }
+          body {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 80)
+            }
           }
         }
       }

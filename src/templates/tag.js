@@ -9,7 +9,6 @@ import Container from '../components/Container'
 
 const TagTemplate = ({ data }) => {
   const { title, slug } = data.contentfulTag
-
   const posts = sortBy(data.contentfulTag.post, 'publishDate').reverse()
 
   return (
@@ -24,8 +23,7 @@ const TagTemplate = ({ data }) => {
       </Helmet>
 
       <Container>
-        <PageTitle small>Tag: &ldquo;{title}&rdquo;</PageTitle>
-
+        <PageTitle small>Category &ldquo;{title}&rdquo;</PageTitle>
         <CardList>
           {posts.map(post => (
             <Card
