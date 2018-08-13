@@ -9,6 +9,7 @@ import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
 import CardList from '../components/CardList'
 import Card from '../components/Card'
+import Author from '../components/Author'
 
 const PostTemplate = ({ data }) => {
   const {
@@ -18,6 +19,7 @@ const PostTemplate = ({ data }) => {
     body,
     publishDate,
     tags,
+    author
   } = data.contentfulPost
 
   const postNode = data.contentfulPost
@@ -35,6 +37,7 @@ const PostTemplate = ({ data }) => {
 
       <Container>
         <PostDate date={publishDate} />
+        {author && <Author author={author} />}
         <PageBody body={body} />
         {tags && <TagList tags={tags} />}
 
@@ -79,6 +82,20 @@ export const query = graphql`
       }
       publishDate(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
+      author {
+        id
+        name
+        biography {
+            internal {
+              content
+            }
+          }
+        profilePicture {
+          sizes(maxWidth: 64) {
+            ...GatsbyContentfulSizes_withWebp_noBase64
+          }
+        }
+      }
       tags {
         title
         id
