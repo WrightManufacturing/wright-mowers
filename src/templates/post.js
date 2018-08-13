@@ -36,13 +36,13 @@ const PostTemplate = ({ data }) => {
       <Hero title={title} image={heroImage} height={'50vh'} />
 
       <Container>
-        <PostDate date={publishDate} />
         {author && <Author author={author} />}
+        <PostDate date={publishDate} />
         <PageBody body={body} />
         {tags && <TagList tags={tags} />}
 
         {postGroup.length > 0 &&
-          <h4 
+        <h4 
           style={{
             fontWeight: '700',
             margin: '1rem 0rem',

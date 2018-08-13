@@ -37,9 +37,9 @@ const Author = ({author}) => {
   console.log(author)
   return (
     <Wrapper>
-        <AuthorPic sizes={author.profilePicture.sizes} backgroundColor={'#eeeeee'} />
-        <Name>{author.name}</Name>
-        <Bio>{author.biography.internal.content}</Bio>
+      <AuthorPic sizes={author.profilePicture.sizes} backgroundColor={'#eeeeee'} />
+      <Name>{author.name}</Name>
+      <Bio>{author.biography.internal.content}</Bio>
     </Wrapper>
   )
 }

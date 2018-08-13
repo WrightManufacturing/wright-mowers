@@ -32,6 +32,7 @@ class Index extends React.Component {
                 title={post.title}
                 date={post.publishDate}
                 excerpt={post.body}
+                author={post.author}
               />
             ))}
           </CardList>
@@ -52,6 +53,20 @@ export const query = graphql`
           title
           id
           slug
+          author {
+            id
+            name
+            biography {
+                internal {
+                  content
+                }
+              }
+            profilePicture {
+              sizes(maxWidth: 64) {
+                ...GatsbyContentfulSizes_withWebp_noBase64
+              }
+            }
+          }
           tags {
             title
             slug
