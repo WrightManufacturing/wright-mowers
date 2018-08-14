@@ -1,7 +1,93 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import fingoods from '../data/fingoods'
 import styled from 'styled-components'
-
+const specConfig = [
+  {
+    section: 'Drivetrain',
+    fields: [
+      {
+        title: 'Pumps',
+        field: 'pump'
+      },
+      {
+        title: 'Motors',
+        field: 'motor'
+      },
+      {
+        title: 'Transaxle',
+        field: 'transaxle'
+      }
+    ]
+  },
+  {
+    section: 'Productivity',
+    fields: [
+      {
+        title: 'Fuel Capacity',
+        field: 'fuel_capacity'
+      },
+      {
+        title: 'Speed',
+        field: 'forward_speed'
+      },
+      {
+        title: 'Acres/Hour',
+        field: 'max_acres_per_hour'
+      }
+    ]
+  },
+  {
+    section: 'Tires (Diameter x Width - Rim)',
+    fields: [
+      {
+        title: 'Rear',
+        field: 'rearTires'
+      },
+      {
+        title: 'Front',
+        field: 'frontTires'
+      }
+    ]
+  },
+  {
+    section: 'Dimensions',
+    fields: [
+      {
+        title: 'Length / Width (Deflector Up)',
+        field: 'rearTires'
+      },
+      {
+        title: 'Weight (Dry)',
+        field: 'weight'
+      }
+    ]
+  },
+  {
+    section: 'Deck',
+    fields: [
+      {
+        title: 'Cut Height Range',
+        field: 'cutHeightRange'
+      },
+      {
+        title: 'Type',
+        field: 'deck_type'
+      },
+      {
+        title: 'Construction',
+        field: 'deckConfig'
+      },
+      {
+        title: 'Lift System',
+        field: 'lift_system'
+      },
+      {
+        title: 'Blades',
+        field: 'blades'
+      }
+    ]
+  }
+]
 const Specs = styled.div`
   display: flex;
   flex-direction: column;
@@ -22,12 +108,11 @@ const Specs = styled.div`
 
 const Spec = styled.div`
   border-left: solid 1px ${props => props.theme.colors.highlight};
-  padding-left: .8rem;
   margin: .8rem 0rem;
   h3 {
     padding: .5rem;
-    margin-left: -.8rem;
     font-size: 1.25em;
+    font-weight: 500;
     border-bottom: solid 1px ${props => props.theme.colors.highlight};
   }
 
@@ -36,8 +121,9 @@ const Spec = styled.div`
   }
 
   h4 {
-    margin-top: 1rem;
     align-self: flex-start;
+    margin: 1rem auto .3rem .5rem;
+    font-size: 1.1rem;
     span {
       font-size: .9rem;
       font-weight: 300;
@@ -45,28 +131,10 @@ const Spec = styled.div`
   }
 
   p {
-    margin: .5rem 0rem;
+    margin: 0rem .5rem;
     font-weight: 300;
   }
 
-  div {
-    padding: .25rem;
-    margin: .5rem .25rem;
-    border-left: 2px solid ${props => props.theme.colors.secondary};
-  }
-`
-
-const Model = styled.tbody`
-  tr {
-    border-bottom: solid 1px ${props => props.theme.colors.highlight};
-    &:last-child {
-      border: none;
-    }
-  }
-  td {
-    padding: .4rem;
-    line-height: 1.25;
-  }
   strong {
     font-weight: 400;
   }
@@ -76,116 +144,152 @@ const Model = styled.tbody`
   }
 `
 
+const Model = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-right: solid 1px ${props => props.theme.colors.highlight};
+  &:last-child {
+    border: none;
+  }
+  section {
+    background: ${props => props.theme.colors.tertiary};
+    border-radius: 5px;
+    padding: .5rem;
+    margin: .5rem;
+    line-height: 1.25;
+  }
+`
+
+const Deck = styled.div`
+  font-weight: 500;
+  align-self: center;
+  margin-top: .5rem;
+  p {
+    margin-left: 1.2rem;
+  }
+
+`
+
+const Decks = styled.div`
+  display:flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+`
+const Vendor = styled.strong`
+  border-radius: 5px;
+` 
+
 class ProductSpec extends React.Component {
   state = {
-    data: fingoods.filter(({mow_family})=> mow_family === this.props.title)
+    data: fingoods
+    .filter(({mow_family})=> mow_family === this.props.title)
+    .map(spec => {
+      spec.rearTires = `${spec.tire_diameter} x ${spec.rim_diameter} - ${spec.tire_width}`
+      spec.frontTires = `${spec.caster_tire_diameter} x ${spec.caster_tire_width} - ${spec.caster_rim_diameter}`
+      spec.dimensions = `${spec['length']}" / ${spec.width_deflector_up}"`
+      spec.blades = `${spec.blade_length}" (${spec.blade_quantity})`
+      spec.weight = `${spec.weight} lbs.`
+      spec.deckConfig = `${spec.configuration}, ${spec.steel_gauge}`
+      spec.cutHeightRange = `${spec.deck_min_cut_height} - ${spec.deck_max_cut_height}`
+      spec.cutHeightRange = `${spec.deck_min_cut_height} - ${spec.deck_max_cut_height}`
+      spec.fuel_capacity = `${spec.fuel_capacity}`
+      spec.forward_speed = `${spec.forward_speed}`
+      return spec
+      }
+    )
   }
-  getUnique = (atribute) => {
-    return Array.from(new Set(this.state.data.map((val) => val[atribute]))).map((val) => val)
-  }
+
+  getUnique = (atribute, data) => Array.from(new Set(data.map((val) => val[atribute]))).map((val) => val)
+  
+  filterByDeckSize = (deck) => this.state.data.filter(({deck_size}) => deck_size === deck)
 
   groupByDeck = (atribute) => {
     const data = this.state.data
     const decks = Array.from(new Set(data.map(({deck_size}) => deck_size)))
-    return decks.map((deck,idx) => 
-      <div key={idx}>
-        <strong>{deck}": </strong>
-        {<span key={idx}>{atribute[idx][0]}</span>}
-      </div>
-    )
+    const uniqueArray = this.getUnique(atribute, data)
+    const veryUniqueArray = Array.from(new Set(uniqueArray))
+    if (veryUniqueArray.length > 1) {
+      return decks.map((deck) => {
+        const filtered = this.filterByDeckSize(deck)
+        return {deckSize: deck,value: this.getUnique(atribute, filtered)}
+      })
+   } else if (veryUniqueArray[0].length > 1) {
+      return Array.from(new Set(uniqueArray))
+   } else {
+     return null
+   }
   }
 
+  createRenderObject = () => {
+    return specConfig.map(({section, fields}) => {
+      return {
+        section: section,
+        fields: fields.map(({field, title}) => {
+          return {
+            field: this.groupByDeck(field),
+            title: title
+          }
+        })
+      }
+    })
+  }
+
+
   render() {
-    const data = this.state.data
-    const decks = Array.from(new Set(data.map(({deck_size}) => deck_size)))
-    const tires = decks.map(deck => data.filter(({deck_size})=> deck_size === deck).map(({tire_diameter, rim_diameter, tire_width}) => `${tire_diameter} x ${rim_diameter} - ${tire_width}`))
-    const castors = decks.map(deck => data.filter(({deck_size})=> deck_size === deck).map(({caster_tire_diameter, caster_tire_width, caster_rim_diameter}) => `${caster_tire_diameter} x ${caster_tire_width} - ${caster_rim_diameter}`))
-    const dimensions = decks.map(deck => data.filter(({deck_size})=> deck_size === deck).map(({length, width_deflector_up}) => `${length}" / ${width_deflector_up}"`))
-    const weights = decks.map(deck => data.filter(({deck_size})=> deck_size === deck).map(({weight}) => `${weight} lbs.`))
-    const blades = decks.map(deck => data.filter(({deck_size})=> deck_size === deck).map(({blade_length, blade_quantity}) => `${blade_length}" (${blade_quantity})`))
-    const acresPerHours = decks.map(deck => data.filter(({deck_size})=> deck_size === deck).map(({max_acres_per_hour}) => `${max_acres_per_hour}`))
+    const data = this.createRenderObject()
+    const decks = this.getUnique('deck_size',this.state.data)
     return (
       <Specs>
         <h1>Specs</h1>
 
         <Spec>
-          <h3>Options & Pricing</h3>
-          <table>
-            <Model>
-
-            {this.state.data.map(({deck_size, vendor, model, horsepower, msrp, mow_sku}) => 
-                <tr key={mow_sku}>
-                  <td>
-                    <strong>{deck_size}"</strong>
-                  </td>
-                  <td>
+          <h3>Engines & Deck Options</h3>
+          <Decks>
+            {decks.map(deck => 
+              <Model key={deck + 'deck'}>
+                <Deck>{deck}"</Deck>
+                {this.filterByDeckSize(deck).map(({vendor, model, horsepower, msrp, mow_sku}) => 
+                  <section
+                    style={{borderTop: `solid 2px ${
+                      vendor === 'Kawasaki' ? '#F34B4B' : 
+                        vendor === 'Kohler' ? '#1C3075' : 
+                          vendor === 'Briggs & Stratton' && '#ee9600'
+                    }`}}
+                  >
                     <strong>{vendor}</strong>
                     <br/>
-                    {model} {horsepower}<small>HP</small>
-                  </td>
-                  <td>
-                    <strong>{mow_sku}</strong>
+                    <strong>{model}</strong> {horsepower}<small>HP</small>
                     <br/>
                     ${msrp.toLocaleString()}
-                  </td>
-                </tr>
-              )}
+                  </section>
+                )}
               </Model>
-          </table>
+            )}
+          </Decks>
         </Spec>
 
-        <Spec>
-          <h3>Drivetrain</h3>
-
-          <h4>Pumps</h4>
-          <p>{this.getUnique('pump')}</p>
-
-          <h4>Motors</h4>
-          <p>{this.getUnique('motor')}</p>
-
-          <h4>Transaxle</h4>
-          <p>{this.getUnique('transaxle')}</p>
-        </Spec>
-
-        <Spec>
-          
-
-          <h3>Productivity</h3>
-          <h4>Fuel Capacity<p>{this.getUnique('fuel_capacity')} GAL</p></h4>
-          <h4>Speed<p>{this.getUnique('forward_speed')} MPH</p></h4>
-          <h4>Acres/Hour</h4>
-          {this.groupByDeck(acresPerHours)}
-        </Spec>
-
-        <Spec>
-          <h3>Tires <span>{'(Diameter x Width - Rim)'}</span></h3>
-          <h4>Rear</h4>
-          {this.groupByDeck(tires)}
-          <h4>Front</h4>
-          {this.groupByDeck(castors)}
-        </Spec>
-
-        <Spec>
-          <h3>Dimensions</h3>
-          <h4>Length / Width <span>{'(Deflector Up)'}</span></h4>
-          {this.groupByDeck(dimensions)}
-          <h4>Weight <span>{'(Dry)'}</span></h4>
-          {this.groupByDeck(weights)}
-        </Spec>
-
-        <Spec>
-          <h3>Deck</h3>
-          <h4>Cut Height Range</h4>
-          <p>{`${this.getUnique('deck_min_cut_height')}" - ${this.getUnique('deck_max_cut_height')}"`}</p>
-          <h4>Type</h4>
-          <p>{this.getUnique('deck_type')}</p>
-          <h4>Construction</h4>
-          <p>{this.getUnique('configuration')} {this.getUnique('steel_gauge')} Steel</p>
-          <h4>Lift System</h4>
-          <p>{this.getUnique('lift_system')}</p>
-          <h4>Blades</h4>
-          {this.groupByDeck(blades)}
-        </Spec>
+        {
+          data.map(({section, fields}, idx) =>
+            <Spec key={idx + 'i'}>
+              <h3>{section}</h3>
+              {fields && fields.map(({title,field},idx) => 
+                field && 
+                <section key={idx + 'j'}>
+                  <h4>{title}</h4>
+                  {field.map((val) => 
+                    val.deckSize ?
+                      <Deck>
+                        <p><strong>{val.deckSize}:</strong> {val.value}</p>
+                      </Deck>
+                      :
+                      <p>{val}</p>
+                  )}
+                </section>
+              )}
+            </Spec>
+          )
+        }
           
       </Specs>
     )
@@ -193,6 +297,3 @@ class ProductSpec extends React.Component {
 }
 
 export default ProductSpec
-
-// If there are multiple specs per product, split them up by deck size.
-// If not, show just the spec without deck size
