@@ -54,7 +54,7 @@ const specConfig = [
     fields: [
       {
         title: 'Length / Width (Deflector Up)',
-        field: 'rearTires'
+        field: 'dimensions'
       },
       {
         title: 'Weight (Dry)',
