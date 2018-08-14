@@ -19,14 +19,20 @@ const Body = styled.div`
   }
   h2 {
     font-size: 1.25em;
+    border-left: solid 3px ${props => props.theme.colors.highlight};
+    margin-top: 1.8rem;
+    margin-left: -.5rem;
+    padding-left: .4rem;
+    border-radius: 3px;
   }
   h3 {
     font-size: 1em;
+    margin-bottom: .5rem;
   }
 
   p {
     line-height: 1.6;
-    margin: 0 0 2em 0;
+    margin: 0 0 1em 0;
   }
 
   a {
@@ -56,26 +62,19 @@ const Body = styled.div`
   ul {
     li {
       list-style: disc;
-      list-style-position: inside;
-      line-height: 1.25;
     }
   }
 
   ol {
     li {
       list-style: decimal;
-      list-style-position: inside;
-      line-height: 1.25;
-      &:last-child {
-        margin: 0;
-      }
     }
   }
 
   li {
-    text-indent: -1.3em;
-    padding-left: 1em;
+    margin-left: 1em;
     margin-bottom: .5rem;
+    line-height: 1.25;
   }
 
   hr {

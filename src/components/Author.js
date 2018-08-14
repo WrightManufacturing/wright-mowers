@@ -14,15 +14,36 @@ const Name = styled.span`
   padding: .5rem;
   padding-left: 2rem;
   font-size: 1rem;
-  background-color: ${props => props.theme.colors.tertiary};
+  background: ${props => props.theme.colors.tertiary};
   border-radius: 0px 5px 5px 0px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: background .1s;
+  &:after {
+    content: "i";
+    background: white;
+    margin-left: .3rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    text-align: center;
+    border-radius: 1rem;
+  }
+  &:hover {
+    background: ${props => props.theme.colors.secondary};
+  }
+
 `
 const Bio = styled.p`
+  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  margin: auto;
+  margin-bottom: 1rem;
   color: ${props => props.theme.colors.base};
-  display: none;
-  :hover {
-    display: block;
-  }
+  background: ${props => props.theme.colors.tertiary};
+  padding: 1rem;
+  line-height: 1.25rem;
+  border-radius: 5px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.14), 0 3px 5px rgba(0,0,0,0.2);
 `
 
 const AuthorPic = styled(Img)`
@@ -33,15 +54,25 @@ const AuthorPic = styled(Img)`
   box-shadow: 0 3px 5px rgba(0,0,0,0.14), 0 3px 5px rgba(0,0,0,0.2);
 `
 
-const Author = ({author}) => {
-  console.log(author)
-  return (
-    <Wrapper>
-      <AuthorPic sizes={author.profilePicture.sizes} backgroundColor={'#eeeeee'} />
-      <Name>{author.name}</Name>
-      <Bio>{author.biography.internal.content}</Bio>
-    </Wrapper>
-  )
+class Author extends React.Component {  
+  state={showBio: false}
+  render() {
+    console.log(this.props.author)
+    const author = this.props.author
+    return (
+      <div>
+        <Wrapper>
+          <AuthorPic sizes={author.profilePicture.sizes} backgroundColor={'#eeeeee'} />
+          <Name onClick={() => 
+            this.state.showBio === false ? this.setState({showBio: true}) : this.setState({showBio: false})
+          }>{author.name}</Name>
+          
+        </Wrapper>
+          {this.state.showBio && <Bio>{author.biography.internal.content}</Bio> }
+
+      </div>
+    )
+  }
 }
 
 export default Author

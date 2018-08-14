@@ -2,14 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  margin: 0 auto 2em;
+  margin: 0 auto 1.5em;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
+  border-bottom: solid 1px ${props => props.theme.colors.base};
+  padding-bottom: 1rem;
 `
+
 
 const Date = styled.p`
   display: inline-block;
   span {
-    font-weight: 600;
+    font-weight: 500;
   }
 `
 
