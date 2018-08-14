@@ -214,6 +214,8 @@ class ProductSpec extends React.Component {
         const filtered = this.filterByDeckSize(deck)
         return {deckSize: deck,value: this.getUnique(atribute, filtered)}
       })
+   } else if (veryUniqueArray[0] === undefined) {
+      return null
    } else if (veryUniqueArray[0].length > 1) {
       return Array.from(new Set(uniqueArray))
    } else {
