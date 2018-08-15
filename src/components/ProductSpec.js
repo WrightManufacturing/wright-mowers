@@ -106,16 +106,19 @@ const Header = styled.h1`
   text-align: center;
 `
 
+const GradientBreak = styled.div`
+    background-image: linear-gradient(to right, #333333 0%, white 100%);
+    height: 2px;
+    width: 100%;
+`
+
 const Spec = styled.div`
   margin: 1.2rem auto 2.2rem 0rem;
   h3 {
-    padding-bottom: .5rem;
-    margin-bottom: .5rem;
+    margin-bottom: .4rem;
     font-size: 1.25em;
     font-weight: 500;
-    border-bottom: solid 1px ${props => props.theme.colors.base};
   }
-
   span {
     font-weight: 300;
   }
@@ -150,6 +153,7 @@ const Model = styled.div`
   display: flex;
   flex-direction: column;
   border-right: solid 1px ${props => props.theme.colors.secondary};
+  padding-top: .5rem;
   &:last-child {
     border: none;
   }
@@ -254,6 +258,7 @@ class ProductSpec extends React.Component {
       <Specs>
         <Spec style={{width: '100%'}}>
           <h3>Engines & Deck Options</h3>
+          <GradientBreak />
           <Decks>
             {decks.map((deck, idx) => 
               <Model key={idx + 'deck'}>
@@ -283,6 +288,7 @@ class ProductSpec extends React.Component {
           data.map(({section, fields}, idx) =>
             <Spec key={idx + 'i'}>
               <h3>{section}</h3>
+              <GradientBreak/>
               {fields && fields.map(({title,field},idx) => 
                 field && 
                 <section key={idx + 'j'}>

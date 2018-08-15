@@ -57,7 +57,6 @@ const AuthorPic = styled(Img)`
 class Author extends React.Component {  
   state={showBio: false}
   render() {
-    console.log(this.props.author)
     const author = this.props.author
     return (
       <div>
