@@ -2993,9 +2993,9 @@ export default [
   },
   {
     "mow_sku": "WZ52SFX850E-49S",
-    "mow_name": "Mid-Mount Z 52 FX850",
+    "mow_name": "MMZ 52 FX850",
     "mow_category": "Mid-Mount",
-    "mow_family": "Mid-Mount Z",
+    "mow_family": "MMZ",
     "generation": "Gen 1",
     "msrp": 9800,
     "operator_control_type": "Over the lap controls",
@@ -3037,9 +3037,9 @@ export default [
   },
   {
     "mow_sku": "WZ61SFX850E-49S",
-    "mow_name": "Mid-Mount Z 61 FX850",
+    "mow_name": "MMZ 61 FX850",
     "mow_category": "Mid-Mount",
-    "mow_family": "Mid-Mount Z",
+    "mow_family": "MMZ",
     "generation": "Gen 1",
     "msrp": 10050,
     "operator_control_type": "Over the lap controls",
