@@ -66,7 +66,7 @@ export const query = graphql`
         id
         title
         thumbnail {
-          sizes(maxWidth: 100) {
+          sizes(maxWidth: 150) {
           ...GatsbyContentfulSizes_withWebp_noBase64
           }
         }

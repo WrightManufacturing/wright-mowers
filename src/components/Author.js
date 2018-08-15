@@ -33,6 +33,7 @@ const Name = styled.span`
     background: ${props => props.theme.colors.secondary};
   }
 
+
 `
 const Bio = styled.p`
   max-width: ${props => props.theme.sizes.maxWidthCentered};

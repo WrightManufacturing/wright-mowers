@@ -16,6 +16,10 @@ const specConfig = [
       {
         title: 'Transaxle',
         field: 'transaxle'
+      },
+      {
+        title: 'Gear Box',
+        field: 'transmission'
       }
     ]
   },
@@ -163,6 +167,20 @@ const Model = styled.div`
     padding: .5rem;
     margin: .5rem .7rem;
     line-height: 1.25;
+    aside {
+      display:none;
+      margin-top: .5rem;
+      margin-left: -.5rem;
+      position: absolute;
+      background: ${props => props.theme.colors.tertiary};
+      padding: .2rem;
+      border-radius: 3px;
+    }
+    &:hover {
+      aside {
+        display: block;
+      }
+    }
   }
 `
 
@@ -277,6 +295,7 @@ class ProductSpec extends React.Component {
                     <strong>{model}</strong> {horsepower}<small>HP</small>
                     <br/>
                     ${msrp.toLocaleString()}
+                    <aside>{mow_sku}</aside>
                   </section>
                 )}
               </Model>

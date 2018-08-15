@@ -36,7 +36,7 @@ const Nav = styled.nav`
     text-decoration: none;
     color: ${props => props.theme.colors.highlight};
     transition: all 0.2s;
-    padding: 1em .6em;
+    padding: 1em .5em;
     display: block;
     white-space:nowrap;
     &:hover {
@@ -45,15 +45,15 @@ const Nav = styled.nav`
   }
 
   @media (max-width: ${props => props.theme.responsive.small}) {
-    mask-image: -webkit-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
-    mask-image: -moz-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 15px, black 90%, transparent);
-    -webkit-mask-image: -webkit-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
-    -webkit-mask-image: -moz-linear-gradient(to right, transparent, black 15px, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15px, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15px, black 85%, transparent);
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
+    a {
+      &:last-child {
+      padding-right: 1.4rem;
+    }
+    }
   }
 `
 

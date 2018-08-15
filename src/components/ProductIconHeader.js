@@ -3,28 +3,46 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
+const Wrapper = styled.div`
+  margin: auto;
+  max-width: ${props => props.theme.sizes.maxWidth};
+`
+
 const List = styled.ul`
-  /* width: 100%; */
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  background-color: ${props => props.theme.colors.tertiary};
-  overflow-x: auto;
   padding-top: .5rem;
+  @media (max-width: ${props => props.theme.responsive.small}) {
+    mask-image: linear-gradient(to right, transparent, black 15px, black 90%, transparent);
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    align-content: flex-start;
+  }
 `
 
+const Thumbnail = styled(Img)`
+  height: 4rem;
+`
 const Product = styled.li`
-  margin: auto 1.2rem 1rem 1rem;
+  margin: .5rem;
   transition: all 0.2s;
+
   &:hover {
     opacity: .8;
   }
-  div {
-    font-weight: 500;
+  &:last-child {
+    padding-right: 1rem;
   }
-  img {
-    padding: .4rem;
+  h3 {
+    font-weight: 500;
+    width: 6rem;
+    margin: .3rem 0rem;
+    text-align: center;
   }
   a {
     text-decoration: none;
@@ -35,21 +53,23 @@ const Product = styled.li`
 
 const ProductIconHeader = props => {
   return (
-    <List>
-      {props.products.map(product => (
-        <Product key={product.id}>
-          <Link to={`/${product.slug}/`} exact>
-          <Img
-            height={product.thumbnail.height}
-            sizes={product.thumbnail.sizes}
-            backgroundColor={props => props.theme.colors.tertiary}
-            />
-          <div>{product.title}</div>
-          
-          </Link>
-        </Product>
-      ))}
-    </List>
+    <div style={{  backgroundColor: '#f2f2f2'}}>
+    <Wrapper>
+      <List>
+        {props.products.map(product => (
+          <Product key={product.id}>
+            <Link to={`/${product.slug}/`} exact>
+              <Thumbnail
+                sizes={product.thumbnail.sizes}
+              />
+            <h3>{product.title}</h3>
+            
+            </Link>
+          </Product>
+        ))}
+      </List>
+    </Wrapper>
+    </div>
   )
 }
 
