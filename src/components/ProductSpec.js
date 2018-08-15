@@ -37,7 +37,7 @@ const specConfig = [
     ]
   },
   {
-    section: 'Tires (Diameter x Width - Rim)',
+    section: 'Tires',
     fields: [
       {
         title: 'Rear',
@@ -53,7 +53,7 @@ const specConfig = [
     section: 'Dimensions',
     fields: [
       {
-        title: 'Length / Width (Deflector Up)',
+        title: 'Length / Width',
         field: 'dimensions'
       },
       {
@@ -89,31 +89,31 @@ const specConfig = [
   }
 ]
 const Specs = styled.div`
-  display: flex;
-  flex-direction: column;
   color: ${props => props.theme.colors.base};
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   margin: auto;
   padding: 1rem;
-  h1 {
-    font-size: 2rem;
-    font-weight: 500;
-    margin: auto;
-  }
+  
   p {
     margin: .3rem;
     font-weight: 300;
   }
 `
 
+const Header = styled.h1`
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+`
+
 const Spec = styled.div`
-  border-left: solid 1px ${props => props.theme.colors.highlight};
-  margin: .8rem 0rem;
+  margin: 1.2rem auto 2.2rem 0rem;
   h3 {
-    padding: .5rem;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
     font-size: 1.25em;
     font-weight: 500;
-    border-bottom: solid 1px ${props => props.theme.colors.highlight};
+    border-bottom: solid 1px ${props => props.theme.colors.base};
   }
 
   span {
@@ -122,7 +122,8 @@ const Spec = styled.div`
 
   h4 {
     align-self: flex-start;
-    margin: 1rem auto .3rem .5rem;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
     font-size: 1.1rem;
     span {
       font-size: .9rem;
@@ -131,7 +132,8 @@ const Spec = styled.div`
   }
 
   p {
-    margin: 0rem .5rem;
+    margin: 0rem;
+    margin-bottom: .5rem;
     font-weight: 300;
   }
 
@@ -147,27 +149,34 @@ const Spec = styled.div`
 const Model = styled.div`
   display: flex;
   flex-direction: column;
-  border-right: solid 1px ${props => props.theme.colors.highlight};
+  border-right: solid 1px ${props => props.theme.colors.secondary};
   &:last-child {
     border: none;
   }
   section {
+    border-radius: 3px;
     background: ${props => props.theme.colors.tertiary};
-    border-radius: 5px;
     padding: .5rem;
-    margin: .5rem;
+    margin: .5rem .7rem;
     line-height: 1.25;
   }
 `
 
 const Deck = styled.div`
-  font-weight: 500;
-  align-self: center;
-  margin-top: .5rem;
-  p {
-    margin-left: 1.2rem;
+  strong {
+    border-radius: 2px;
+    padding: 0rem .2rem;
   }
-
+  p {
+    margin: 0rem;
+  }
+  display: inline-block;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+  padding-bottom: 0rem;
+  border: solid 1px ${props => props.theme.colors.tertiary};
+  padding: .3rem;
+  border-radius: 3px;
 `
 
 const Decks = styled.div`
@@ -176,9 +185,8 @@ const Decks = styled.div`
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 `
-const Vendor = styled.strong`
-  border-radius: 5px;
-` 
+
+
 
 class ProductSpec extends React.Component {
   state = {
@@ -190,11 +198,10 @@ class ProductSpec extends React.Component {
       spec.dimensions = `${spec['length']}" / ${spec.width_deflector_up}"`
       spec.blades = `${spec.blade_length}" (${spec.blade_quantity})`
       spec.weight = `${spec.weight} lbs.`
-      spec.deckConfig = `${spec.configuration}, ${spec.steel_gauge}`
-      spec.cutHeightRange = `${spec.deck_min_cut_height} - ${spec.deck_max_cut_height}`
-      spec.cutHeightRange = `${spec.deck_min_cut_height} - ${spec.deck_max_cut_height}`
-      spec.fuel_capacity = `${spec.fuel_capacity}`
-      spec.forward_speed = `${spec.forward_speed}`
+      spec.deckConfig = `${spec.configuration}, ${spec.steel_gauge} Steel`
+      spec.cutHeightRange = `${spec.deck_min_cut_height}" - ${spec.deck_max_cut_height}"`
+      spec.fuel_capacity = `${spec.fuel_capacity} gal.`
+      spec.forward_speed = `${spec.forward_speed} mph`
       return spec
       }
     )
@@ -242,18 +249,19 @@ class ProductSpec extends React.Component {
     const data = this.createRenderObject()
     const decks = this.getUnique('deck_size',this.state.data)
     return (
+      <div>
+      <Header>Specs</Header>
       <Specs>
-        <h1>Specs</h1>
-
-        <Spec>
+        <Spec style={{width: '100%'}}>
           <h3>Engines & Deck Options</h3>
           <Decks>
-            {decks.map(deck => 
-              <Model key={deck + 'deck'}>
-                <Deck>{deck}"</Deck>
-                {this.filterByDeckSize(deck).map(({vendor, model, horsepower, msrp, mow_sku}) => 
+            {decks.map((deck, idx) => 
+              <Model key={idx + 'deck'}>
+                <div style={{marginLeft: '.7rem', fontWeight: '500', marginTop: '.5rem'}}>{deck}"</div>
+                {this.filterByDeckSize(deck).map(({vendor, model, horsepower, msrp, mow_sku},idx) => 
                   <section
-                    style={{borderTop: `solid 2px ${
+                    key={idx + 'engine'}
+                    style={{borderLeft: `solid 2px ${
                       vendor === 'Kawasaki' ? '#F34B4B' : 
                         vendor === 'Kohler' ? '#1C3075' : 
                           vendor === 'Briggs & Stratton' && '#ee9600'
@@ -281,11 +289,14 @@ class ProductSpec extends React.Component {
                   <h4>{title}</h4>
                   {field.map((val) => 
                     val.deckSize ?
-                      <Deck>
-                        <p><strong>{val.deckSize}:</strong> {val.value}</p>
-                      </Deck>
+                      [
+                        <Deck key={val.deckSize}>
+                          <p key={val.deckSize + 'b'} ><strong>{val.deckSize}:</strong> {val.value}</p>
+                        </Deck>,
+                        <br/>
+                      ]
                       :
-                      <p>{val}</p>
+                      <p key={val.deckSize + 'x'}>{val}</p>
                   )}
                 </section>
               )}
@@ -294,6 +305,7 @@ class ProductSpec extends React.Component {
         }
           
       </Specs>
+      </div>
     )
   }
 }
