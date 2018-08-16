@@ -28,11 +28,11 @@ const specConfig = [
     fields: [
       {
         title: 'Fuel Capacity',
-        field: 'fuel_capacity'
+        field: 'fuel'
       },
       {
         title: 'Speed',
-        field: 'forward_speed'
+        field: 'speed'
       },
       {
         title: 'Acres/Hour',
@@ -61,8 +61,8 @@ const specConfig = [
         field: 'dimensions'
       },
       {
-        title: 'Weight (Dry)',
-        field: 'weight'
+        title: 'Weight',
+        field: 'newWeight'
       }
     ]
   },
@@ -172,7 +172,7 @@ const Model = styled.div`
       margin-top: .5rem;
       margin-left: -.5rem;
       position: absolute;
-      background: ${props => props.theme.colors.tertiary};
+      background: ${props => props.theme.colors.secondary};
       padding: .2rem;
       border-radius: 3px;
     }
@@ -219,11 +219,11 @@ class ProductSpec extends React.Component {
       spec.frontTires = `${spec.caster_tire_diameter} x ${spec.caster_tire_width} - ${spec.caster_rim_diameter}`
       spec.dimensions = `${spec['length']}" / ${spec.width_deflector_up}"`
       spec.blades = `${spec.blade_length}" (${spec.blade_quantity})`
-      spec.weight = `${spec.weight} lbs.`
+      spec.newWeight = `${spec.weight} lbs.`
       spec.deckConfig = `${spec.configuration}, ${spec.steel_gauge} Steel`
       spec.cutHeightRange = `${spec.deck_min_cut_height}" - ${spec.deck_max_cut_height}"`
-      spec.fuel_capacity = `${spec.fuel_capacity} gal.`
-      spec.forward_speed = `${spec.forward_speed} mph`
+      spec.fuel = `${spec.fuel_capacity} gal.`
+      spec.speed = `${spec.forward_speed} mph`
       return spec
       }
     )
@@ -275,7 +275,7 @@ class ProductSpec extends React.Component {
       <Header>Specs</Header>
       <Specs>
         <Spec style={{width: '100%'}}>
-          <h3>Engines & Deck Options</h3>
+          <h3>Engine & Deck Options</h3>
           <GradientBreak />
           <Decks>
             {decks.map((deck, idx) => 
@@ -316,7 +316,7 @@ class ProductSpec extends React.Component {
                     val.deckSize ?
                       [
                         <Deck key={val.deckSize}>
-                          <p key={val.deckSize + 'b'} ><strong>{val.deckSize}:</strong> {val.value}</p>
+                          <p key={val.deckSize + 'b'} ><strong>{val.deckSize}:</strong> {val.value.length > 1 ? `${val.value.sort()[0]} - ${val.value[val.value.sort().length-1]}` : val.value}</p>
                         </Deck>,
                         <br/>
                       ]

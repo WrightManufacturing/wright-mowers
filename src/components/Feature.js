@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import CompareTable from '../components/CompareTable'
 
 const List = styled.div`
   display: flex;

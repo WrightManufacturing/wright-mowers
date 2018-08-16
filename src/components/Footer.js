@@ -122,8 +122,8 @@ const Footer = () => (
     <div>Products</div>
   </Item>
   <Item>
-    <Link to="/compare/" >
-      Compare
+    <Link to="/pricing/" >
+      Pricing
     </Link>
   </Item>
   <Item>
