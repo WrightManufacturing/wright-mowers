@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-require('prismjs/themes/prism.css')
 
 const Body = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
+  sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
   h1,
   h2,
   h3 {

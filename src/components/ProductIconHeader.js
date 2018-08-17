@@ -31,7 +31,7 @@ const Thumbnail = styled(Img)`
 const Product = styled.li`
   margin: .5rem;
   transition: all 0.2s;
-
+  
   &:hover {
     opacity: .8;
   }

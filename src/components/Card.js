@@ -55,7 +55,7 @@ const Excerpt = styled.p`
 const Card = props => {
   return (
     <Post>
-      <Link to={`/${props.slug}/`}>
+      <Link to={`/articles/${props.slug}/`}>
         <Img sizes={props.image.sizes} backgroundColor={'#eeeeee'} />
         <Title>{props.title}</Title>
         {/* {props.author && <Author author={props.author} />} */}

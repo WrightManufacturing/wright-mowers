@@ -13,6 +13,7 @@ const Slogan = styled.h2`
   text-align: center;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  font-weight: 300;
 `
 
 const Description = styled.p`
