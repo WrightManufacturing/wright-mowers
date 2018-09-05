@@ -215,7 +215,7 @@ class ProductSpec extends React.Component {
     data: fingoods
     .filter(({mow_family})=> mow_family === this.props.title)
     .map(spec => {
-      spec.rearTires = `${spec.tire_diameter} x ${spec.rim_diameter} - ${spec.tire_width}`
+      spec.rearTires = `${spec.tire_diameter} x ${spec.tire_width} - ${spec.rim_diameter}`
       spec.frontTires = `${spec.caster_tire_diameter} x ${spec.caster_tire_width} - ${spec.caster_rim_diameter}`
       spec.dimensions = `${spec['length']}" / ${spec.width_deflector_up}"`
       spec.blades = `${spec.blade_length}" (${spec.blade_quantity})`
