@@ -33,7 +33,7 @@ export default [
     "deck_max_cut_height": 4.5,
     "steel_gauge": "7 Gauge",
     "spindle_type": "Ductile Iron",
-    "weight": 639,
+    "weight": 637,
     "length": 58,
     "width_deflector_down": 45.5,
     "width_deflector_up": 33.5,
