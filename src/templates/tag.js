@@ -6,13 +6,16 @@ import Card from '../components/Card'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
+
+import Layout from '../components/Layout'
+
 import { graphql } from 'gatsby'
 const TagTemplate = ({ data }) => {
   const { title, slug } = data.contentfulTag
   const posts = sortBy(data.contentfulTag.post, 'publishDate').reverse()
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
         <meta
@@ -37,7 +40,7 @@ const TagTemplate = ({ data }) => {
           ))}
         </CardList>
       </Container>
-    </div>
+    </Layout>
   )
 }
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import 'whatwg-fetch' // Fetch Polyfill
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -156,7 +155,7 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
-      showModal: false,
+      showModal: false
     }
   }
 
@@ -165,7 +164,7 @@ class ContactForm extends React.Component {
     const value = target.value
     const name = target.name
     this.setState({
-      [name]: value,
+      [name]: value
     })
   }
 
@@ -173,7 +172,7 @@ class ContactForm extends React.Component {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
+      body: encode({ 'form-name': 'contact', ...this.state })
     })
       .then(this.handleSuccess)
       .catch(error => alert(error))
@@ -185,7 +184,7 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
-      showModal: true,
+      showModal: true
     })
   }
 
@@ -239,7 +238,8 @@ class ContactForm extends React.Component {
 
         <Modal visible={this.state.showModal}>
           <p>
-            Thank you for reaching out. We will get back to you as soon as possible.
+            Thank you for reaching out. We will get back to you as soon as
+            possible.
           </p>
           <Button onClick={this.closeModal}>Okay</Button>
         </Modal>
@@ -249,7 +249,7 @@ class ContactForm extends React.Component {
 }
 
 ContactForm.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.object
 }
 
 export default ContactForm

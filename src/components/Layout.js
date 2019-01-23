@@ -7,7 +7,6 @@ import Menu from './Menu'
 import Footer from './Footer'
 import favicon from '../images/favicon.ico'
 import 'typeface-roboto'
-
 import { GlobalStyle } from '../styles/global'
 
 const Layout = ({ children }) => {

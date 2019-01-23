@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import Author from '../components/Author'
-// import Img from 'gatsby-image'
+import Img from 'gatsby-image'
+// import Author from '../components/Author'
 
 const Post = styled.li`
   border: 1px solid ${props => props.theme.colors.secondary};
@@ -53,14 +53,14 @@ const Excerpt = styled.p`
 `
 
 const Card = props => {
-  console.log(props)
-  console.log(props.image)
   return (
     <Post>
       <Link to={`/articles/${props.slug}/`}>
-        {/* <Img sizes={props.image.sizes} backgroundColor={'#eeeeee'} /> */}
+        {props.image && (
+          <Img sizes={props.image.sizes} backgroundColor={'#eeeeee'} />
+        )}
         <Title>{props.title}</Title>
-        {props.author && <Author author={props.author} />}
+        {/* {props.author && <Author author={props.author} />} */}
         <Date>{props.date}</Date>
         <Excerpt
           dangerouslySetInnerHTML={{

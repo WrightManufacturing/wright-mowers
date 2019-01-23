@@ -7,8 +7,8 @@ try {
   contentfulConfig = {
     production: {
       spaceId: process.env.SPACE_ID,
-      accessToken: process.env.ACCESS_TOKEN,
-    },
+      accessToken: process.env.ACCESS_TOKEN
+    }
   }
 } finally {
   const { spaceId, accessToken } = contentfulConfig.production
@@ -27,15 +27,15 @@ module.exports = {
       description: config.siteDescription,
       image_url: `${config.siteUrl}${config.siteLogo}`,
       author: config.author,
-      copyright: config.copyright,
-    },
+      copyright: config.copyright
+    }
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: config.siteUrl,
-      },
+        siteUrl: config.siteUrl
+      }
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
@@ -43,8 +43,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/markdown`,
-        name: "testpages",
-      },
+        name: 'testpages'
+      }
     },
     `gatsby-transformer-remark`,
     {
@@ -56,25 +56,18 @@ module.exports = {
             options: {
               maxWidth: 650,
               backgroundColor: 'white',
-              linkImagesToOriginal: false,
-            },
-          },
-        ],
-      },
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
     },
     {
       resolve: 'gatsby-source-contentful',
       options:
         process.env.NODE_ENV === 'development'
           ? contentfulConfig.development
-          : contentfulConfig.production,
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
-        head: true,
-      },
+          : contentfulConfig.production
     },
     'gatsby-plugin-sitemap',
     {
@@ -87,10 +80,10 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'minimal-ui',
-        icon: `static${config.siteLogo}`,
-      },
+        icon: `static${config.siteLogo}`
+      }
     },
-    'gatsby-plugin-offline',
+    'gatsby-plugin-remove-serviceworker',
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -101,22 +94,22 @@ module.exports = {
           return ret
         },
         query: `
-    {
-      site {
-        siteMetadata {
-          rssMetadata {
-            site_url
-            feed_url
-            title
-            description
-            image_url
-            author
-            copyright
-          }
-        }
-      }
-    }
-  `,
+              {
+                site {
+                  siteMetadata {
+                    rssMetadata {
+                      site_url
+                      feed_url
+                      title
+                      description
+                      image_url
+                      author
+                      copyright
+                    }
+                  }
+                }
+              }
+            `,
         feeds: [
           {
             serialize(ctx) {
@@ -130,41 +123,41 @@ module.exports = {
                 guid: rssMetadata.site_url + '/' + edge.node.slug,
                 custom_elements: [
                   {
-                    'content:encoded': edge.node.body.childMarkdownRemark.html,
-                  },
-                ],
+                    'content:encoded': edge.node.body.childMarkdownRemark.html
+                  }
+                ]
               }))
             },
             query: `
               {
-            allContentfulPost(limit: 1000, sort: {fields: [publishDate], order: DESC}) {
-               edges {
-                 node {
-                   title
-                   slug
-                   publishDate(formatString: "MMMM DD, YYYY")
-                   body {
-                     childMarkdownRemark {
-                       html
-                       excerpt(pruneLength: 80)
-                     }
-                   }
-                 }
-               }
-             }
-           }
+                allContentfulPost(limit: 1000, sort: {fields: [publishDate], order: DESC}) {
+                  edges {
+                    node {
+                      title
+                      slug
+                      publishDate(formatString: "MMMM DD, YYYY")
+                      body {
+                        childMarkdownRemark {
+                          html
+                          excerpt(pruneLength: 80)
+                        }
+                      }
+                    }
+                  }
+                }
+              }
       `,
-            output: '/rss.xml',
-          },
-        ],
-      },
+            output: '/rss.xml'
+          }
+        ]
+      }
     },
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
-        color: config.themeColor,
-      },
+        color: config.themeColor
+      }
     },
-    'gatsby-plugin-netlify',
-  ],
+    'gatsby-plugin-netlify'
+  ]
 }
