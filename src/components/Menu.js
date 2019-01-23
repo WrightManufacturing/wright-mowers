@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import logo from '../images/logo.svg'
-import Headroom from 'react-headroom'
 
 const HeaderFullWidth = styled.div`
   background: ${props => props.theme.colors.base};
@@ -22,7 +21,7 @@ const Header = styled.header`
   img {
     height: 2em;
     width: auto;
-    margin: 0em .6em;
+    margin: 0em 0.6em;
   }
 `
 
@@ -30,29 +29,36 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding: 0em .7em;
+  padding: 0em 0.7em;
   margin-right: 0;
   a {
     text-decoration: none;
     color: ${props => props.theme.colors.highlight};
     transition: all 0.2s;
-    padding: 1em .5em;
+    padding: 1em 0.5em;
     display: block;
-    white-space:nowrap;
+    white-space: nowrap;
     &:hover {
-      box-shadow: 0 0px,0 -2px ${props => props.theme.colors.highlight} inset, 0px 0, 0px 0;
+      box-shadow: 0 0px, 0 -2px ${props => props.theme.colors.highlight} inset,
+        0px 0, 0px 0;
     }
   }
 
   @media (max-width: ${props => props.theme.responsive.small}) {
-    mask-image: linear-gradient(to right, transparent, black 15px, black 85%, transparent);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 15px,
+      black 85%,
+      transparent
+    );
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     a {
       &:last-child {
-      padding-right: 1.4rem;
-    }
+        padding-right: 1.4rem;
+      }
     }
   }
 `
@@ -66,8 +72,8 @@ const Menu = () => {
     <div>
       <HeaderFullWidth>
         <Header>
-          <Link to="/" exact>
-            <img src={logo} alt="Wright Mowers Logo"/>
+          <Link to="/">
+            <img src={logo} alt="Wright Mowers Logo" />
           </Link>
           <Nav>
             <Link to="/stand-on/" activeStyle={activeLinkStyle}>
@@ -91,7 +97,7 @@ const Menu = () => {
           </Nav>
         </Header>
       </HeaderFullWidth>
-      <div style={{ height: '48px' }} ></div>
+      <div style={{ height: '48px' }} />
     </div>
   )
 }

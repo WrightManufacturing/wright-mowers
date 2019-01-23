@@ -1,4 +1,3 @@
-
 **Serial #:** 105700 and higher until superseded
 
 **Revised:** 13 July 2018
@@ -7,13 +6,12 @@
 
 ![5 WSTX FROM 105700 TO HIGHER](//images.ctfassets.net/fjgme14v1dqp/69DuJxHbP2aEY0MqQEKweW/8723c004d0bfb913f93cb882af8b786f/5_WSTX_FROM_105700_TO_HIGHER.jpg)
 
---- 
+---
 
->⚠️ __FAILURE TO FOLLOW SAFE OPERATING PRACTICES MAY RESULT IN SERRIOUS INJURY OR DEATH.__ Read this manual and other manuals that came with your mower before operating.
-
-
+> ⚠️ **FAILURE TO FOLLOW SAFE OPERATING PRACTICES MAY RESULT IN SERRIOUS INJURY OR DEATH.** Read this manual and other manuals that came with your mower before operating.
 
 # Introduction
+
 Thank you for choosing to purchase our equipment. We are focused on giving you advanced engineering and quality construction in each machine we build. This manual explains the features and promotes safer use of the machine. Please read it in its entirety and follow the instructions carefully so that you can have many years of safe and productive operation with your Wright machine.
 
 Your Wright dealer knows your machine and is interested in your satisfaction. Your dealer can provide you with quality maintenance and other assistance that you may need.
@@ -29,19 +27,16 @@ The Engine Owner's Manual contains information regarding the US Environmental Pr
 Accident prevention regulations, other general safety regulations, occupational safety rules, and traffic regulations must be followed without fail.
 
 > ⚠️ **California Proposition 65 Warning**
-The engine exhaust from this product contains chemicals known to the State of California to cause cancer, birth defects, or other reproductive harm. Battery posts, terminals, and related accessories contain lead and lead compounds, chemicals known to the State of California to cause cancer and reproductive harm. Wash hands after handling. Use of this product may cause exposure to chemicals known to the State of California to cause cancer, birth defects, or other reproductive harm. For more information go to [www.P65Warnings.ca.gov](https://www.p65warnings.ca.gov/).
-
+> The engine exhaust from this product contains chemicals known to the State of California to cause cancer, birth defects, or other reproductive harm. Battery posts, terminals, and related accessories contain lead and lead compounds, chemicals known to the State of California to cause cancer and reproductive harm. Wash hands after handling. Use of this product may cause exposure to chemicals known to the State of California to cause cancer, birth defects, or other reproductive harm. For more information go to [www.P65Warnings.ca.gov](https://www.p65warnings.ca.gov/).
 
 > **Safety Alert Symbol: ⚠️**
-This safety-alert symbol is used throughout the manual to identify potential hazards that may cause serious injury or death. To reduce the potential for injury, comply with these safety instructions, and pay attention to the safety alert symbol, which means Caution, Warning, or Danger — personal safety instructions. Failure to comply with the instructions may result in personal injury or death.
-
+> This safety-alert symbol is used throughout the manual to identify potential hazards that may cause serious injury or death. To reduce the potential for injury, comply with these safety instructions, and pay attention to the safety alert symbol, which means Caution, Warning, or Danger — personal safety instructions. Failure to comply with the instructions may result in personal injury or death.
 
 # New Machine Setup
 
->⚠️ If you are not completely familiar with the Safety Instruction Manual read it now before proceeding with the Pre-Delivery Service of the mower.
+> ⚠️ If you are not completely familiar with the Safety Instruction Manual read it now before proceeding with the Pre-Delivery Service of the mower.
 
-
-__The following items must be completed before attempting to operate a newly delivered machine.__
+**The following items must be completed before attempting to operate a newly delivered machine.**
 
 1. Inspect the mower for any damage, missing parts, and labels.
 2. Check for any recall or service notices.
@@ -52,11 +47,11 @@ __The following items must be completed before attempting to operate a newly del
 7. Check the deck height select for proper operation and range.
 8. Add regular unleaded gasoline to fuel tank.
 9. Check brake and control interlock.
-    - Try starting the engine with the parking brake released. (Engine should not start).
-    - With the hand controls in the middle or neutral position, apply the parking brake.
-    - Start the engine.
-    - Check if the parking brake locking system prevents the machine from being driven while engaged. If not, service the brake system.
-    - Release the parking brake. Move the control levers, one at a time, to make the wheels move in forward and backward rotation.
+   - Try starting the engine with the parking brake released. (Engine should not start).
+   - With the hand controls in the middle or neutral position, apply the parking brake.
+   - Start the engine.
+   - Check if the parking brake locking system prevents the machine from being driven while engaged. If not, service the brake system.
+   - Release the parking brake. Move the control levers, one at a time, to make the wheels move in forward and backward rotation.
 10. Test the Clutch/Brake
     - Insure the area is clear of people and objects that may be thrown.
     - Move the engine throttle control to ¾ RPM speed setting.
@@ -71,7 +66,6 @@ __The following items must be completed before attempting to operate a newly del
 **Dealer:**
 Register the mower online within 14 days from the date of retail purchase. Registering the product indicates you have successfully completed the pre-delivery service checklist. The limited warranty is considered invalid unless the unit is registered and the above steps are taken.
 Remember, the purchaser is both your customer and our customer and his/her satisfaction is very important. Thank you for supporting our products.
-
 
 # Safety Precautions
 
@@ -113,7 +107,6 @@ The machine is designed with your safety in mind. It has the following safety sy
 - DO NOT disable any of the safety features.
 - Unauthorized modifications to the design of the machine will absolve the manufacturer from liability for any resulting personal injury or property damage.
 
-
 ## Training
 
 - Read the operators manual, warnings, labels, attachments manual, engine manual, and other training material carefully. If the operator or mechanic cannot read the language provided, it is the owner’s responsibility to explain this material to them.
@@ -126,8 +119,8 @@ The machine is designed with your safety in mind. It has the following safety sy
 ## Preparation
 
 - Carefully inspect and walk the property where you plan to use the machine for hidden, hard-to-see objects or uneven ground that may be hidden in the grass. Uneven terrain could
-3-3
-overturn the machine, or cause the operator to lose balance or footing.
+  3-3
+  overturn the machine, or cause the operator to lose balance or footing.
 - Clear the work area of moveable objects, including but not limited to, rocks, glass, toys, wires, dog chains/cables, and golf balls that might be picked up by the machine and dangerously thrown.
 - Remove or mark the location of all immovable objects or irregular areas and be sure not to hit them with any part of the machine. Obstacles including and not limited to holes, abrupt changes in ground contour, tree trunks, stumps or roots, pipes or posts, paving edges, and rock outcroppings can abruptly turn or stop the machine. This could throw you off the machine or possibly over the handle bars causing serious injury or death.
 - Check carefully for overhead obstacles (i.e. branches, clothes lines, doorways, electrical wire, decks, building overhangs, etc.) before operating and do not operate near them.
@@ -139,8 +132,8 @@ overturn the machine, or cause the operator to lose balance or footing.
 - Ensure that all drives are in neutral and that the parking brake is engaged before starting engine. Start the electric start engines only from the operator’s position.
 - Before using, always visually inspect to see that the blades, blade bolts and the mower assembly are not worn or damaged. Never straighten or weld blades.
 
-
 ## Operating
+
 - Keep a firm hold of the stationary handle at all times. Keep both feet on the platform at all times.
 - To prevent serious injury never place your foot or feet on the ground near the back edge of the machine while backing up.
 - Do not suddenly push controls in forward direction while machine is in a rearward motion. Operate the controls smoothly.
@@ -154,7 +147,7 @@ overturn the machine, or cause the operator to lose balance or footing.
 - Do not raise the mower deck with the blades running.
 - Do not direct discharge material toward anyone. Avoid discharging material against a wall or obstruction. Material may ricochet back toward the operator.
 - If the machine discharge clogs, turn off the blade clutch switch, apply the parking brake, stop the engine and remove the key before removing obstruction(s).
-3-4
+  3-4
 - Do not leave the machine running unattended. Always park on level ground, disengage the attachment, set parking brake, and stop engine.
 - Stop on level ground, disengage drives, engage the parking brake, and shut off the engine before leaving the operator's position for any reason including emptying the catchers, unclogging the chute, and servicing the blades or cutter deck.
 - Stop equipment and inspect the blades after striking objects or if an abnormal vibration occurs. Make the necessary repairs before resuming operations.
@@ -162,8 +155,8 @@ overturn the machine, or cause the operator to lose balance or footing.
 - Do not touch parts that may be hot from operation. Allow the machine to cool before attempting to maintain, adjust, service, unjamb, or service the machine.
 - Do not put hands or feet near rotating parts or under the machine. Keep clear of the discharge opening at all times.
 
-
 ## Slope Specific
+
 - Before operating on slopes, walk the area and evaluate the surface for traction and smoothness. Slopes with drop offs, water, or compromised traction should be maintained through other maintenance techniques.
 - Slow down and use extra care on hillsides. Be sure to travel in the recommended direction on hillsides. Turf conditions can affect the stability of the machine.
 - Do not operate near drop-offs, ditches, embankments, or water. The machine could suddenly roll over if a wheel goes over the edge or the edge caves in. The machine could suddenly slide if traction is compromised. Leave a safety area between the machine and any hazard.
@@ -171,7 +164,7 @@ overturn the machine, or cause the operator to lose balance or footing.
 - Slopes are a major factor related to accidents. Operation on all slopes requires extra caution.
 - Establish your own special operating procedures and rules for operating on slopes. These procedures must include a survey of all mowing sites to determine which slopes are acceptable. Always use caution, and good judgement when performing this survey.
 - Note that high traction conditions present a greater rollover hazard while lower traction conditions present a greater loss of control hazard. Ground and turf conditions vary
-depending on the weather and must be taken into consideration at all times.
+  depending on the weather and must be taken into consideration at all times.
 - Some liquid landscape chemicals contain surfactants which may by very slippery and severely compromise safe operation.
 - Do not operate on steep slopes.
 - Do not operate the machine on slopes when the grass is wet.
@@ -183,19 +176,18 @@ depending on the weather and must be taken into consideration at all times.
 - Reduce speed and exercise extreme caution on slopes and in sharp turns to prevent tipping or loss of control. Be especially cautious when changing direction on slopes.
 - Do not operate tires that are worn beyond 3/32” of tread. Do not use unapproved treads or tire pressures. Unapproved treads or excessive pressures can compromise your traction.
 
-
-
 ## Children Specific
+
 - Death or serious injury can occur when young children associate having fun with lawn mowing equipment.
 - Children who have been entertained with power equipment in the past may be attracted to the machine while operating. Children do not understand the hazards of rotating blades and moving equipment. Never use the machine as a recreational vehicle or to entertain children.
 - Never allow children or untrained operators to operate the machine. Instruct all operators to not give children rides.
 - Tragic accidents can occur if the operator is not alert to the presence of children. Children are often attracted to the machine and the mowing activity.
 - Never assume that children will remain where you last saw them.
 - Keep children out of the operating area and under the watchful care of a responsible adult other than the operator.
-3-5
+  3-5
 - Do not carry children, even with the blade(s) shut off. Children could fall off and be seriously injured or interfere with safe machine operation. Children who have been given rides in the past could suddenly appear in the mowing area for another ride and be run over or backed over by the machine.
 - Do not allow children to play on or around machine when not in use and never leave the key in the ignition switch. Children may be injured by hot components and are prone to attempt operating all functions of the equipment which may result in becoming pinched, crushed, or unintended operation.
-Fire and Fuel Specific
+  Fire and Fuel Specific
 - Besides routine maintenance, one of the best ways to reduce the risk of fire is to regularly check and remove debris and combustible residue from the machine.
 - Use extra care when handling fuels. They are flammable and vapors are explosive.
 - Use only an approved container.
@@ -226,8 +218,8 @@ Fire and Fuel Specific
 - Machines with hydraulic pumps, hoses, or motors: WARNING: Fluid escaping under pressure may have sufficient force to penetrate skin and cause serious injury. If fluid is injected into the skin, seek immediate medical attention. Keep body and hands away from pin holes or nozzles that eject fluid under high pressure. If a leak occurs, have the machine immediately serviced by a trained technician. Never use hands to search for hydraulic leaks. Use paper, cardboard, or UV dye. Keep body and hands away from pin holes or fittings that eject hydraulic fluid under high pressure.
 - Disconnect spark plug wire(s) and the negative battery cable before making any repairs.
 - The machine should not be used after the blades or other part of the machine strikes a
-3-6
-foreign object, until conducting a thorough inspection and any damage is repaired.
+  3-6
+  foreign object, until conducting a thorough inspection and any damage is repaired.
 - Do not climb underneath
 - Do not service the machine while suspended by an unapproved lift, such as a forklift, or hoist/structure not approved for overhead lifting. Use proper lifts, or jack stands to support the machine.
 - Don’t change RPM's outside of operating limits or alter the governor operation
@@ -236,45 +228,51 @@ foreign object, until conducting a thorough inspection and any damage is repaire
 - Use of parts other than specified parts supplied by Wright Manufacturing, Inc. may compromise the safe use of the machine and not recommended. Their use could void the warranty. Always check with your Dealer or the Wright website, www.wrightmfg.com for the Part Lists and diagrams for your machine.
 - Waste products, such as used oil, fuel, coolant, brake fluid and batteries, can harm the environment and people. Do not use beverage or unlabeled containers for waste fluids – someone may drink from them. Do not leave open containers where they can be accessed by children or animals.
 
-
 # Product Overview
 
 ## Specifications
+
 Engine
+
 - See your engine owner’s manual
 - Full speed 3600 +/- 50 RPM
 - No load/Idle: 1550 RPM
 
 Electrical System
+
 - Charging System: Internal stator coil
 - Battery Type: Maintenance free
 - Battery Voltage: 12 Volts
 - Fuses: Two, 20 amp blade type
-  
+
 Drive System
+
 - Hydro Gear 12cc variable displacement piston pumps
 - Hydro Gear 15 cu. in. wheel motors
 
 Hydro Oil System
+
 - Hydro Oil: full SYNTHETIC l:Mobil-1 15W-50
 - Hydro Filter: Spin-on, 25 micron, no bypass
 - Tank Fill Level: Until fluid is visible in the sight glass
 
 Fuel System
+
 - Capacity: 8 Gal. (30.2 L).
 - Type of Fuel: Unleaded regular gasoline, minimum 85 octane. Do not use gasoline containing more than 10% ethanol. Do not mix oil with gasoline.
 - Fuel Filter: In line.
 - Fuel shut off: On, Off located on fuel tank.
 
 Speeds:
+
 - Forward 9.5 mph (15.3 km h).
 - Reverse 5.5 mph (8.9 km h).
 
 ## General Dimensions
 
-| Deck:     | 48"     | 52"     | 61"     |
-| ---------- | ---------- | ---------- | ---------- |
-| Width, Chute down       | 74.5”       | 77.5”       | 86.5”       |
-| Width, Chute up       | 62”       | 65”       | 74”       |
-| Length       | 65”       | 66”       | 67”       |
-| Weight       | 900 lbs       | 920 lbs       | 980 lbs       |
+| Deck:             | 48"     | 52"     | 61"     |
+| ----------------- | ------- | ------- | ------- |
+| Width, Chute down | 74.5”   | 77.5”   | 86.5”   |
+| Width, Chute up   | 62”     | 65”     | 74”     |
+| Length            | 65”     | 66”     | 67”     |
+| Weight            | 900 lbs | 920 lbs | 980 lbs |

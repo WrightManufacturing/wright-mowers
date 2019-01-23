@@ -3,6 +3,7 @@ import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
 import styled from 'styled-components'
+import Layout from '../components/Layout'
 
 const SubTitle = styled.h2`
   font-size: ${props => (props.small ? '1.8em' : '2.5em')};
@@ -25,14 +26,13 @@ const SubTitle = styled.h2`
 
 const Index = () => {
   return (
-    <div>
+    <Layout>
       <SEO />
       <Container>
         <SubTitle>The Future Of Mowing.</SubTitle>
-        <PageTitle small >Stander ZK Gen 2</PageTitle>
-
+        <PageTitle small>Stander ZK Gen 2</PageTitle>
       </Container>
-    </div>
+    </Layout>
   )
 }
 

@@ -6,7 +6,7 @@ import Card from '../components/Card'
 import CardList from '../components/CardList'
 import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
-
+import { graphql } from 'gatsby'
 const TagTemplate = ({ data }) => {
   const { title, slug } = data.contentfulTag
   const posts = sortBy(data.contentfulTag.post, 'publishDate').reverse()

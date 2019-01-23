@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import Img from 'gatsby-image' 
 import Author from '../components/Author'
+// import Img from 'gatsby-image'
 
-const Post = styled.li` 
-  border: 1px solid ${props =>  props.theme.colors.secondary};
+const Post = styled.li`
+  border: 1px solid ${props => props.theme.colors.secondary};
   border-radius: 2px;
   margin: 0 0 1em 0;
   width: 100%;
   transition: box-shadow 0.2s;
-  background-color: ${props =>  props.theme.colors.tertiary};
+  background-color: ${props => props.theme.colors.tertiary};
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 49%;
     margin: 0 0 2vw 0;
@@ -18,7 +18,7 @@ const Post = styled.li`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     flex: 0 0 32%;
     &:hover {
-    box-shadow: 0 3px 5px rgba(0,0,0,0.14), 0 3px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.14), 0 3px 5px rgba(0, 0, 0, 0.2);
     }
   }
   a {
@@ -53,16 +53,18 @@ const Excerpt = styled.p`
 `
 
 const Card = props => {
+  console.log(props)
+  console.log(props.image)
   return (
     <Post>
       <Link to={`/articles/${props.slug}/`}>
-        <Img sizes={props.image.sizes} backgroundColor={'#eeeeee'} />
+        {/* <Img sizes={props.image.sizes} backgroundColor={'#eeeeee'} /> */}
         <Title>{props.title}</Title>
-        {/* {props.author && <Author author={props.author} />} */}
+        {props.author && <Author author={props.author} />}
         <Date>{props.date}</Date>
         <Excerpt
           dangerouslySetInnerHTML={{
-            __html: props.excerpt.childMarkdownRemark.excerpt,
+            __html: props.excerpt.childMarkdownRemark.excerpt
           }}
         />
       </Link>

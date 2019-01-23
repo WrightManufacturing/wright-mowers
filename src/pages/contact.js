@@ -5,14 +5,15 @@ import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import ContactForm from '../components/ContactForm'
 import SEO from '../components/SEO'
+import Layout from '../components/Layout'
 
 const Contact = ({ data }) => {
   const postNode = {
-    title: `Contact - ${config.siteTitle}`,
+    title: `Contact - ${config.siteTitle}`
   }
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
@@ -34,7 +35,7 @@ const Contact = ({ data }) => {
           <li>(301) 360-9810</li>
         </ul> */}
       </Container>
-    </div>
+    </Layout>
   )
 }
 

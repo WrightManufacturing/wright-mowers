@@ -8,6 +8,8 @@ import SEO from '../components/SEO'
 import ProductIconHeader from '../components/ProductIconHeader.js'
 import Feature from '../components/Feature.js'
 import Img from 'gatsby-image'
+import Layout from '../components/Layout'
+import { graphql } from 'gatsby'
 
 const Slogan = styled.h2`
   text-align: center;
@@ -27,17 +29,25 @@ const Description = styled.p`
 `
 
 const CategoryTemplate = ({ data }) => {
-  const { title, slug, slogan, mainImage, features, products, longDescription} = data.contentfulCategory
+  const {
+    title,
+    slug,
+    slogan,
+    mainImage,
+    features,
+    products,
+    longDescription
+  } = data.contentfulCategory
   const postNode = data.contentfulCategory
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO pagePath={slug} postNode={postNode} pageSEO />
-      { products && <ProductIconHeader products={products} />}
+      {products && <ProductIconHeader products={products} />}
       <Container>
-        <PageTitle small >{title}</PageTitle>
+        <PageTitle small>{title}</PageTitle>
         <Slogan>{slogan}</Slogan>
         <Img
           height={mainImage.height}
@@ -47,7 +57,7 @@ const CategoryTemplate = ({ data }) => {
         <Description>{longDescription.internal.content}</Description>
         {features && <Feature features={features} />}
       </Container>
-    </div>
+    </Layout>
   )
 }
 
@@ -68,7 +78,7 @@ export const query = graphql`
         title
         thumbnail {
           sizes(maxWidth: 150) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+            ...GatsbyContentfulSizes_withWebp_noBase64
           }
         }
       }
@@ -87,7 +97,7 @@ export const query = graphql`
         }
         featureAsset {
           sizes(maxWidth: 400) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+            ...GatsbyContentfulSizes_withWebp_noBase64
           }
         }
       }

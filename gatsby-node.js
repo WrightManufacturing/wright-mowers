@@ -1,7 +1,7 @@
 const path = require(`path`)
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   const loadPosts = new Promise((resolve, reject) => {
     graphql(`
@@ -20,8 +20,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           path: `articles/${node.slug}/`,
           component: path.resolve(`./src/templates/post.js`),
           context: {
-            slug: node.slug,
-          },
+            slug: node.slug
+          }
         })
       })
       resolve()
@@ -45,8 +45,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           path: `${node.slug}/`,
           component: path.resolve(`./src/templates/page.js`),
           context: {
-            slug: node.slug,
-          },
+            slug: node.slug
+          }
         })
       })
       resolve()
@@ -70,8 +70,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           path: `tag/${node.slug}/`,
           component: path.resolve(`./src/templates/tag.js`),
           context: {
-            slug: node.slug,
-          },
+            slug: node.slug
+          }
         })
       })
       resolve()
@@ -95,8 +95,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           path: `${node.slug}/`,
           component: path.resolve(`./src/templates/product.js`),
           context: {
-            slug: node.slug,
-          },
+            slug: node.slug
+          }
         })
       })
       resolve()
@@ -120,20 +120,28 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           path: `${node.slug}/`,
           component: path.resolve(`./src/templates/category.js`),
           context: {
-            slug: node.slug,
-          },
+            slug: node.slug
+          }
         })
       })
       resolve()
     })
   })
 
-  return Promise.all([loadPosts, loadPages, loadTags, loadProducts, loadCategory])
+  return Promise.all([
+    loadPosts,
+    loadPages,
+    loadTags,
+    loadProducts,
+    loadCategory
+  ])
 }
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  if (stage === 'build-javascript') {
-    // turn off source-maps
-    config.merge({ devtool: false });
-  }
-};
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  // switch (stage) {
+  //   case `build-javascript`:
+  //     actions.setWebpackConfig({
+  //       devtool: false
+  //     })
+  // }
+}

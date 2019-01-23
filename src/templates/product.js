@@ -9,8 +9,8 @@ import Link from 'gatsby-link'
 import Feature from '../components/Feature'
 import ProductSpec from '../components/ProductSpec'
 import Hero from '../components/Hero'
-import ReactPlayer from 'react-player'
-
+import Layout from '../components/Layout'
+import { graphql } from 'gatsby'
 const Slogan = styled.section`
   text-align: center;
   background-color: ${props => props.theme.colors.base};
@@ -36,7 +36,7 @@ const ProductNav = styled.div`
   z-index: 9;
   width: 100%;
   background-color: rgba(233, 233, 233, 0.9);
-  padding: .4rem .5rem;
+  padding: 0.4rem 0.5rem;
   div {
     max-width: ${props => props.theme.sizes.maxWidth};
     display: flex;
@@ -49,7 +49,7 @@ const ProductNav = styled.div`
     text-decoration: none;
     color: ${props => props.theme.colors.base};
     display: inline-block;
-    padding: 0rem .4rem;
+    padding: 0rem 0.4rem;
     border-right: solid 1px ${props => props.theme.colors.base};
     font-weight: 600;
     align-self: center;
@@ -59,15 +59,15 @@ const ProductNav = styled.div`
       font-weight: 500;
       border-radius: 1rem;
       border: none;
-      padding: .2rem .6rem;
-      margin-left: .5rem;
+      padding: 0.2rem 0.6rem;
+      margin-left: 0.5rem;
       margin-right: 1rem;
       @media (max-width: ${props => props.theme.responsive.small}) {
         margin-right: 0rem;
       }
     }
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
   }
   h1 {
@@ -90,11 +90,17 @@ const SpecContainer = styled.div`
 `
 
 const ProductTemplate = ({ data }) => {
-  const { title, slug, slogan, shortDescription, mainImage, features, youtubeVideo } = data.contentfulProduct
+  const {
+    title,
+    slug,
+    slogan,
+    shortDescription,
+    mainImage,
+    features
+  } = data.contentfulProduct
   const postNode = data.contentfulProduct
   return (
-    <div>
-
+    <Layout>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -118,33 +124,12 @@ const ProductTemplate = ({ data }) => {
         </div>
       </Slogan>
 
-      <Container>
-
-          {features && <Feature features={features} />}
-
-
-          {/* <ReactPlayer
-            style={{
-              width: '100px',
-              height: '100px'
-            }}
-            url={youtubeVideo}
-            config={{
-              youtube: {
-                playerVars: { 
-                  controls: 1
-                }
-              }
-            }}
-          /> */}
-
-      </Container>
+      <Container>{features && <Feature features={features} />}</Container>
 
       <SpecContainer>
         <ProductSpec title={title} />
-      </ SpecContainer>
-
-    </div>
+      </SpecContainer>
+    </Layout>
   )
 }
 
@@ -166,7 +151,7 @@ export const query = graphql`
         }
         featureAsset {
           sizes(maxWidth: 500) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+            ...GatsbyContentfulSizes_withWebp_noBase64
           }
         }
       }

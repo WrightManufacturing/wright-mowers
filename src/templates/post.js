@@ -10,7 +10,8 @@ import SEO from '../components/SEO'
 import CardList from '../components/CardList'
 import Card from '../components/Card'
 import Author from '../components/Author'
-
+import Layout from '../components/Layout'
+import { graphql } from 'gatsby'
 const PostTemplate = ({ data }) => {
   const {
     title,
@@ -24,10 +25,13 @@ const PostTemplate = ({ data }) => {
 
   const postNode = data.contentfulPost
 
-  const postGroup = data.allContentfulPost.edges.filter(({node: post}) => post.tags[0].title === tags[0].title && title !== post.title)
+  const postGroup = data.allContentfulPost.edges.filter(
+    ({ node: post }) =>
+      post.tags[0].title === tags[0].title && title !== post.title
+  )
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -41,15 +45,17 @@ const PostTemplate = ({ data }) => {
         <PageBody body={body} />
         {tags && <TagList tags={tags} />}
 
-        {postGroup.length > 0 &&
-        <h4 
-          style={{
-            fontWeight: '700',
-            margin: '1rem 0rem',
-            fontSize: '1.3rem'
-          }}
-        >Related:</h4>
-        }
+        {postGroup.length > 0 && (
+          <h4
+            style={{
+              fontWeight: '700',
+              margin: '1rem 0rem',
+              fontSize: '1.3rem'
+            }}
+          >
+            Related:
+          </h4>
+        )}
 
         <CardList>
           {postGroup.map(({ node: post }) => (
@@ -63,9 +69,8 @@ const PostTemplate = ({ data }) => {
             />
           ))}
         </CardList>
-
       </Container>
-    </div>
+    </Layout>
   )
 }
 
@@ -86,10 +91,10 @@ export const query = graphql`
         id
         name
         biography {
-            internal {
-              content
-            }
+          internal {
+            content
           }
+        }
         profilePicture {
           sizes(maxWidth: 64) {
             ...GatsbyContentfulSizes_withWebp_noBase64

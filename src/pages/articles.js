@@ -5,24 +5,24 @@ import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
 import TagList from '../components/TagList'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 
-class Index extends React.Component {
-  state = {selectedTag: null}
+class Articles extends React.Component {
+  state = { selectedTag: null }
 
   render() {
     const data = this.props.data
     const posts = data.allContentfulPost.edges
-    const tags = data.allContentfulTag.edges.map(({node}) => node)
-    return(
-      <div>
+    const tags = data.allContentfulTag.edges.map(({ node }) => node)
+    return (
+      <Layout>
         <SEO />
         <Container>
-          <PageTitle small>
-            Articles
-          </PageTitle>
+          <PageTitle small>Articles</PageTitle>
 
           {tags && <TagList tags={tags} />}
-          
+
           <CardList>
             {posts.map(({ node: post }) => (
               <Card
@@ -37,7 +37,7 @@ class Index extends React.Component {
             ))}
           </CardList>
         </Container>
-      </div>
+      </Layout>
     )
   }
 }
@@ -57,10 +57,10 @@ export const query = graphql`
             id
             name
             biography {
-                internal {
-                  content
-                }
+              internal {
+                content
               }
+            }
             profilePicture {
               sizes(maxWidth: 64) {
                 ...GatsbyContentfulSizes_withWebp_noBase64
@@ -99,4 +99,4 @@ export const query = graphql`
   }
 `
 
-export default Index
+export default Articles

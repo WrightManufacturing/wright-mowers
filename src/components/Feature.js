@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
@@ -8,8 +8,8 @@ const List = styled.div`
 `
 
 const Item = styled.div`
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  margin: .75rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 0.75rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,7 +29,7 @@ const Item = styled.div`
     text-align: left;
   }
   section {
-    padding: .6rem;
+    padding: 0.6rem;
   }
   &:nth-child(even) {
     flex-direction: row-reverse;
@@ -38,7 +38,7 @@ const Item = styled.div`
     p {
       text-align: left;
     }
-    margin: .7rem 0;
+    margin: 0.7rem 0;
     display: block;
   }
 `
@@ -57,15 +57,19 @@ const Feature = props => {
     <List>
       {props.features.map(feature => (
         <Item key={feature.id}>
-            {feature.featureAsset &&
-              <FeatureImage
-                height={feature.featureAsset.height}
-                sizes={feature.featureAsset.sizes}
-              />
-            }
+          {feature.featureAsset && (
+            <FeatureImage
+              height={feature.featureAsset.height}
+              sizes={feature.featureAsset.sizes}
+            />
+          )}
           <section>
             <h4>{feature.title}</h4>
-            <div dangerouslySetInnerHTML={{ __html: feature.description.childMarkdownRemark.html }} ></div>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: feature.description.childMarkdownRemark.html
+              }}
+            />
           </section>
         </Item>
       ))}

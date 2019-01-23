@@ -5,14 +5,15 @@ import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import DemoForm from '../components/DemoForm'
 import SEO from '../components/SEO'
+import Layout from '../components/Layout'
 
 const DemoWright = ({ data }) => {
   const postNode = {
-    title: `Contact - ${config.siteTitle}`,
+    title: `Contact - ${config.siteTitle}`
   }
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`Demo A Wright - ${config.siteTitle}`}</title>
       </Helmet>
@@ -20,10 +21,10 @@ const DemoWright = ({ data }) => {
 
       <Container>
         <PageTitle>Demo A Wright</PageTitle>
-        
+
         <DemoForm />
       </Container>
-    </div>
+    </Layout>
   )
 }
 
