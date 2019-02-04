@@ -159,15 +159,6 @@ const Footer = () => (
         <Item>
           <Link to="/demo-a-wright/">Demo A Wright</Link>
         </Item>
-        <Item>
-          <a
-            href="https://store.wrightmfg.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Online Store
-          </a>
-        </Item>
       </List>
 
       <Copyright>

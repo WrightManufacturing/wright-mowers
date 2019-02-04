@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { geolocated } from 'react-geolocated'
-import scag_locations from '../data/scag_locations'
+import dealers from '../data/dealers'
 import Loading from '../components/Loading'
 import Layout from '../components/Layout'
 
@@ -93,12 +93,6 @@ const Dealers = styled.ul`
   }
 `
 
-const SmallPin = styled.div`
-  height: 10px;
-  width: 10px;
-  background-color: ${props => props.theme.colors.highlight};
-  border-radius: 50%;
-`
 const Pin = styled.div`
   width: 20px;
   height: 20px;
@@ -117,7 +111,7 @@ class DealerLocator extends React.Component {
       height: 400,
       width: 400
     },
-    markers: scag_locations
+    markers: dealers
   }
 
   render() {
@@ -157,7 +151,7 @@ class DealerLocator extends React.Component {
                   <Pin />
                 </DealerPoint>
 
-                {this.state.markers.map(({ latitude, longitude, name }) => (
+                {/* {this.state.markers.map(({ latitude, longitude, name }) => (
                   <DealerPoint
                     key={name + latitude}
                     latitude={latitude}
@@ -165,7 +159,7 @@ class DealerLocator extends React.Component {
                   >
                     <SmallPin />
                   </DealerPoint>
-                ))}
+                ))} */}
               </ReactMapGL>
 
               <Dealers>

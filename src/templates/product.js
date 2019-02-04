@@ -7,7 +7,7 @@ import SEO from '../components/SEO'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import Feature from '../components/Feature'
-// import ProductSpec from '../components/ProductSpec'
+import ProductSpec from '../components/ProductSpec'
 import Hero from '../components/Hero'
 import Layout from '../components/Layout'
 import { graphql } from 'gatsby'
@@ -127,7 +127,7 @@ const ProductTemplate = ({ data }) => {
 
       <Container>{features && <Feature features={features} />}</Container>
 
-      <SpecContainer>{/* <ProductSpec title={title} /> */}</SpecContainer>
+      <SpecContainer><ProductSpec title={title} /></SpecContainer>
     </Layout>
   )
 }
